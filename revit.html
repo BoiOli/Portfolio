@@ -1,498 +1,196 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Revit / BIM Work | Olivier Fiset-Dubois</title>
-
+  <title>Revit / BIM | Olivier Fiset-Dubois</title>
   <style>
-    :root {
-      --ink: #1d252c;
-      --muted: #66717b;
-      --line: #dfe3e6;
-      --paper: #f5f5f3;
-      --white: #ffffff;
-      --accent: #2f5e78;
+
+    :root { --ink:#1d252c; --muted:#66717b; --line:#dfe3e6; --paper:#f5f5f3; --white:#ffffff; --accent:#2f5e78; --soft-blue:#edf4f7; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--ink); background:var(--paper); line-height:1.55; }
+    nav { position:sticky; top:0; z-index:10; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:17px 8%; background:rgba(255,255,255,.97); border-bottom:1px solid var(--line); }
+    .brand { color:var(--ink); font-size:16px; font-weight:800; letter-spacing:.4px; text-decoration:none; }
+    .nav-links { display:flex; flex-wrap:wrap; gap:18px; }
+    .nav-links a { color:var(--muted); font-size:14px; font-weight:700; text-decoration:none; }
+    .nav-links a:hover, .nav-links a.active { color:var(--accent); }
+    header { padding:78px 10% 62px; background:var(--white); border-bottom:1px solid var(--line); }
+    .software-title { display:flex; align-items:center; gap:18px; }
+    .software-title img { width:54px; height:54px; object-fit:contain; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; }
+    h1 { margin:0; font-size:clamp(42px,6vw,72px); line-height:1.03; letter-spacing:-2px; }
+    .intro { max-width:760px; margin:24px 0 0; color:var(--muted); font-size:19px; }
+    main { padding:76px 10%; }
+    .section-heading { display:flex; justify-content:space-between; align-items:end; gap:28px; margin-bottom:34px; }
+    .section-heading h2 { margin:0; font-size:clamp(30px,4vw,46px); letter-spacing:-1px; }
+    .section-heading p { max-width:500px; margin:0; color:var(--muted); }
+    .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+    .project-card { overflow:hidden; background:var(--white); border:1px solid var(--line); border-radius:12px; }
+    .project-image { display:block; height:275px; padding:12px; background:#edf0f1; border-bottom:1px solid var(--line); }
+    .project-image img { display:block; width:100%; height:100%; object-fit:contain; transition:transform .25s ease; }
+    .project-card:hover .project-image img { transform:scale(1.025); }
+    .project-info { padding:18px; }
+    .project-info h3 { margin:0 0 8px; font-size:19px; }
+    .project-info p { margin:0; color:var(--muted); font-size:14px; }
+    .tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:14px; }
+    .tag { padding:5px 9px; color:#4d5962; background:#edf0f1; border-radius:999px; font-size:11px; font-weight:700; }
+    .back-button { display:inline-block; margin-top:54px; padding:12px 17px; color:var(--white); background:var(--ink); border-radius:4px; font-size:14px; font-weight:800; text-decoration:none; }
+    .back-button:hover { background:var(--accent); }
+    footer { padding:25px 10%; color:var(--muted); background:var(--white); font-size:13px; text-align:center; }
+    @media (max-width:980px) { .gallery { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:650px) {
+      nav { align-items:flex-start; flex-direction:column; padding:16px 7%; }
+      header, main { padding-left:7%; padding-right:7%; }
+      .section-heading { align-items:flex-start; flex-direction:column; }
+      .gallery { grid-template-columns:1fr; }
+      .project-image { height:245px; }
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--ink);
-      background: var(--paper);
-      line-height: 1.55;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      padding: 17px 8%;
-      background: rgba(255, 255, 255, 0.97);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brand {
-      color: var(--ink);
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: 0.4px;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--accent);
-    }
-
-    header {
-      padding: 78px 10% 62px;
-      background: var(--white);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .software-title {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .software-title img {
-      width: 54px;
-      height: 54px;
-      object-fit: contain;
-    }
-
-    .eyebrow {
-      margin: 0 0 14px;
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(42px, 6vw, 72px);
-      line-height: 1.03;
-      letter-spacing: -2px;
-    }
-
-    .intro {
-      max-width: 760px;
-      margin: 24px 0 0;
-      color: var(--muted);
-      font-size: 19px;
-    }
-
-    main {
-      padding: 76px 10%;
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 28px;
-      margin-bottom: 34px;
-    }
-
-    .section-heading h2 {
-      margin: 0;
-      font-size: clamp(30px, 4vw, 46px);
-      letter-spacing: -1px;
-    }
-
-    .section-heading p {
-      max-width: 500px;
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .project-card {
-      overflow: hidden;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-    }
-
-    .project-image {
-      display: block;
-      height: 275px;
-      padding: 12px;
-      background: #edf0f1;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .project-image img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      transition: transform 0.25s ease;
-    }
-
-    .project-card:hover .project-image img {
-      transform: scale(1.025);
-    }
-
-    .project-info {
-      padding: 18px;
-    }
-
-    .project-info h3 {
-      margin: 0 0 8px;
-      font-size: 19px;
-    }
-
-    .project-info p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 14px;
-    }
-
-    .tag {
-      padding: 5px 9px;
-      color: #4d5962;
-      background: #edf0f1;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .back-button {
-      display: inline-block;
-      margin-top: 54px;
-      padding: 12px 17px;
-      color: var(--white);
-      background: var(--ink);
-      border-radius: 4px;
-      font-size: 14px;
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .back-button:hover {
-      background: var(--accent);
-    }
-
-    footer {
-      padding: 25px 10%;
-      color: var(--muted);
-      background: var(--white);
-      font-size: 13px;
-      text-align: center;
-    }
-
-    @media (max-width: 980px) {
-      .gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 650px) {
-      nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 16px 7%;
-      }
-
-      header,
-      main {
-        padding-left: 7%;
-        padding-right: 7%;
-      }
-
-      .section-heading {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-
-      .project-image {
-        height: 245px;
-      }
-    }
   </style>
-
 </head>
-
 <body>
-
   <nav>
     <a class="brand" href="index.html">OFD PORTFOLIO</a>
-
-```
-<div class="nav-links">
-  <a href="autocad.html">AutoCAD</a>
-  <a class="active" href="revit.html">Revit / BIM</a>
-  <a href="enscape.html">Enscape</a>
-  <a href="excel.html">Excel</a>
-</div>
-```
-
+    <div class="nav-links">
+      <a href="autocad.html">AutoCAD</a>
+      <a class="active" href="revit.html">Revit / BIM</a>
+      <a href="enscape.html">Enscape</a>
+      <a href="excel.html">Excel</a>
+    </div>
   </nav>
-
   <header>
-    <p class="eyebrow">Software Portfolio</p>
-
-```
-<div class="software-title">
-  <img src="images/Revit/Revit-icon.png" alt="Revit icon">
-  <h1>Revit / BIM</h1>
-</div>
-
-<p class="intro">
-  BIM modelling, architectural documentation, site planning, floor plans,
-  elevations, structural coordination, and visual project presentation.
-</p>
-```
-
+    <p class="eyebrow">Portfolio logiciel</p>
+    <div class="software-title">
+      <img src="images/Revit/Revit-icon.png" alt="Icône Revit / BIM">
+      <h1>Revit / BIM</h1>
+    </div>
+    <p class="intro">Modélisation BIM, documentation architecturale, implantation, plans d’étage, élévations, coordination structurelle et présentation visuelle de projets.</p>
   </header>
 
   <main>
     <div class="section-heading">
-      <h2>Selected BIM work</h2>
-
-```
-  <p>
-    Click any image to open the full-size plan, elevation, model view,
-    detail, or architectural render.
-  </p>
-</div>
-
-<section class="gallery">
-
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/RDC-Green%20tree.png" target="_blank" rel="noopener">
-      <img src="images/Revit/RDC-Green%20tree.png" alt="Green Tree ground-floor plan">
-    </a>
-
-    <div class="project-info">
-      <h3>Green Tree — Ground Floor</h3>
-      <p>Ground-floor BIM plan showing spatial layout, organisation, and coordinated design information.</p>
-
-      <div class="tags">
-        <span class="tag">Revit</span>
-        <span class="tag">Floor Plan</span>
-        <span class="tag">BIM</span>
-      </div>
+      <h2>Travaux BIM sélectionnés</h2>
+      <p>Cliquez sur une image pour ouvrir le plan, l’élévation, la vue du modèle, le détail ou le rendu en grand format.</p>
     </div>
-  </article>
 
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Etage-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Etage-ESP.png" alt="Upper-floor Revit plan">
-    </a>
+    <section class="gallery">
+      <article class="project-card">
+        <a class="project-image" href="images/Revit/RDC-Green%20tree.png" target="_blank" rel="noopener">
+          <img src="images/Revit/RDC-Green%20tree.png" alt="Plan du rez-de-chaussée Green Tree">
+        </a>
+        <div class="project-info">
+          <h3>Green Tree — Rez-de-chaussée</h3>
+          <p>Plan BIM du rez-de-chaussée montrant l’organisation spatiale et l’information de conception coordonnée.</p>
+          <div class="tags"><span class="tag">Revit</span><span class="tag">Plan d’étage</span><span class="tag">BIM</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Revit/Etage-ESP.png" target="_blank" rel="noopener">
+          <img src="images/Revit/Etage-ESP.png" alt="Plan d’étage Revit">
+        </a>
+        <div class="project-info">
+          <h3>Plan d’étage</h3>
+          <p>Plan de niveau présentant l’organisation des pièces et une information architecturale claire.</p>
+          <div class="tags"><span class="tag">Plan</span><span class="tag">Documentation</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Revit/Implantation-ESP.png" target="_blank" rel="noopener">
+          <img src="images/Revit/Implantation-ESP.png" alt="Plan d’implantation">
+        </a>
+        <div class="project-info">
+          <h3>Plan d’implantation</h3>
+          <p>Vue d’implantation montrant la relation du projet avec son contexte environnant.</p>
+          <div class="tags"><span class="tag">Implantation</span><span class="tag">Revit</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Revit/Eleveation-ESP.png" target="_blank" rel="noopener">
+          <img src="images/Revit/Eleveation-ESP.png" alt="Élévation du bâtiment">
+        </a>
+        <div class="project-info">
+          <h3>Élévation du bâtiment</h3>
+          <p>Élévation extérieure préparée pour la communication et la documentation architecturales.</p>
+          <div class="tags"><span class="tag">Élévation</span><span class="tag">Documentation</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Revit/Structure-ESP.png" target="_blank" rel="noopener">
+          <img src="images/Revit/Structure-ESP.png" alt="Coordination structurelle">
+        </a>
+        <div class="project-info">
+          <h3>Coordination structurelle</h3>
+          <p>Vue du modèle illustrant les éléments structurels et leur coordination technique dans le projet.</p>
+          <div class="tags"><span class="tag">Structure</span><span class="tag">Coordination</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Revit/Comp-ESP.png" target="_blank" rel="noopener">
+          <img src="images/Revit/Comp-ESP.png" alt="Composition du modèle BIM">
+        </a>
+        <div class="project-info">
+          <h3>Composition du modèle</h3>
+          <p>Vue BIM coordonnée communiquant la composition générale du bâtiment et l’intention de conception.</p>
+          <div class="tags"><span class="tag">BIM</span><span class="tag">Vue du modèle</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Revit/Detail1-ESP.png" target="_blank" rel="noopener">
+          <img src="images/Revit/Detail1-ESP.png" alt="Détail technique un">
+        </a>
+        <div class="project-info">
+          <h3>Détail technique I</h3>
+          <p>Documentation Revit détaillée présentant une information technique structurée.</p>
+          <div class="tags"><span class="tag">Détaillage</span><span class="tag">BIM</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Revit/Detail2-ESP.png" target="_blank" rel="noopener">
+          <img src="images/Revit/Detail2-ESP.png" alt="Détail technique deux">
+        </a>
+        <div class="project-info">
+          <h3>Détail technique II</h3>
+          <p>Documentation technique liée à la construction produite au moyen d’un flux de travail BIM.</p>
+          <div class="tags"><span class="tag">Détaillage</span><span class="tag">Documentation</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Revit/Detail3-ESP.png" target="_blank" rel="noopener">
+          <img src="images/Revit/Detail3-ESP.png" alt="Détail technique trois">
+        </a>
+        <div class="project-info">
+          <h3>Détail technique III</h3>
+          <p>Échantillon de dessin détaillé avec une hiérarchie organisée et des annotations claires.</p>
+          <div class="tags"><span class="tag">Détaillage</span><span class="tag">Revit</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Revit/Rendu-ESP.png" target="_blank" rel="noopener">
+          <img src="images/Revit/Rendu-ESP.png" alt="Rendu architectural">
+        </a>
+        <div class="project-info">
+          <h3>Rendu architectural</h3>
+          <p>Visualisation du projet communiquant la forme, l’atmosphère architecturale et l’intention globale.</p>
+          <div class="tags"><span class="tag">Visualisation</span><span class="tag">Revit</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Revit/image083.png" target="_blank" rel="noopener">
+          <img src="images/Revit/image083.png" alt="Échantillon de documentation BIM">
+        </a>
+        <div class="project-info">
+          <h3>Échantillon de documentation</h3>
+          <p>Autre contenu BIM appuyant la communication visuelle et technique du projet.</p>
+          <div class="tags"><span class="tag">BIM</span><span class="tag">Projet</span></div>
+        </div>
+      </article>
 
-    <div class="project-info">
-      <h3>Upper-Floor Plan</h3>
-      <p>Building-level plan showing room organisation and clear architectural information.</p>
+    </section>
 
-      <div class="tags">
-        <span class="tag">Plan</span>
-        <span class="tag">Documentation</span>
-      </div>
-    </div>
-  </article>
-
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Implantation-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Implantation-ESP.png" alt="Site implantation plan">
-    </a>
-
-    <div class="project-info">
-      <h3>Site Plan / Implantation</h3>
-      <p>Site-planning view showing the project relationship with its surrounding context.</p>
-
-      <div class="tags">
-        <span class="tag">Site Planning</span>
-        <span class="tag">Revit</span>
-      </div>
-    </div>
-  </article>
-
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Elevation-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Elevation-ESP.png" alt="Building elevation">
-    </a>
-
-    <div class="project-info">
-      <h3>Building Elevation</h3>
-      <p>Exterior elevation prepared for architectural communication and documentation.</p>
-
-      <div class="tags">
-        <span class="tag">Elevation</span>
-        <span class="tag">Documentation</span>
-      </div>
-    </div>
-  </article>
-
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Structure-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Structure-ESP.png" alt="Structural coordination model">
-    </a>
-
-    <div class="project-info">
-      <h3>Structural Coordination</h3>
-      <p>Model view illustrating structural elements and technical coordination within the project.</p>
-
-      <div class="tags">
-        <span class="tag">Structure</span>
-        <span class="tag">Coordination</span>
-      </div>
-    </div>
-  </article>
-
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Comp-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Comp-ESP.png" alt="BIM composition view">
-    </a>
-
-    <div class="project-info">
-      <h3>Model Composition</h3>
-      <p>Coordinated BIM view communicating the overall building composition and design intent.</p>
-
-      <div class="tags">
-        <span class="tag">BIM</span>
-        <span class="tag">Model View</span>
-      </div>
-    </div>
-  </article>
-
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Detail1-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Detail1-ESP.png" alt="Revit technical detail one">
-    </a>
-
-    <div class="project-info">
-      <h3>Technical Detail I</h3>
-      <p>Detailed Revit documentation showing structured technical information.</p>
-
-      <div class="tags">
-        <span class="tag">Detailing</span>
-        <span class="tag">BIM</span>
-      </div>
-    </div>
-  </article>
-
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Detail2-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Detail2-ESP.png" alt="Revit technical detail two">
-    </a>
-
-    <div class="project-info">
-      <h3>Technical Detail II</h3>
-      <p>Construction-related technical documentation produced through a BIM workflow.</p>
-
-      <div class="tags">
-        <span class="tag">Detailing</span>
-        <span class="tag">Documentation</span>
-      </div>
-    </div>
-  </article>
-
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Detail3-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Detail3-ESP.png" alt="Revit technical detail three">
-    </a>
-
-    <div class="project-info">
-      <h3>Technical Detail III</h3>
-      <p>Additional detailed drawing sample with organised hierarchy and clear annotations.</p>
-
-      <div class="tags">
-        <span class="tag">Detailing</span>
-        <span class="tag">Revit</span>
-      </div>
-    </div>
-  </article>
-
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Rendu-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Rendu-ESP.png" alt="Architectural project render">
-    </a>
-
-    <div class="project-info">
-      <h3>Architectural Render</h3>
-      <p>Project visualisation communicating form, architectural atmosphere, and overall design intent.</p>
-
-      <div class="tags">
-        <span class="tag">Visualisation</span>
-        <span class="tag">Revit</span>
-      </div>
-    </div>
-  </article>
-
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/image083.png" target="_blank" rel="noopener">
-      <img src="images/Revit/image083.png" alt="Additional Revit project sample">
-    </a>
-
-    <div class="project-info">
-      <h3>Project Documentation Sample</h3>
-      <p>Additional BIM project material supporting visual and technical communication.</p>
-
-      <div class="tags">
-        <span class="tag">BIM</span>
-        <span class="tag">Project Work</span>
-      </div>
-    </div>
-  </article>
-
-</section>
-
-<a class="back-button" href="index.html">← Back to homepage</a>
-```
-
+    <a class="back-button" href="index.html">← Retour à l’accueil</a>
   </main>
 
-  <footer>
-    © 2026 Olivier Fiset-Dubois — Architectural Portfolio
-  </footer>
-
+  <footer>© 2026 Olivier Fiset-Dubois — Portfolio d’architecture</footer>
 </body>
 </html>
