@@ -1,544 +1,164 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Olivier Fiset-Dubois | Architectural Portfolio</title>
-
+  <title>Olivier Fiset-Dubois | Portfolio d’architecture</title>
   <style>
-    :root {
-      --ink: #1d252c;
-      --muted: #66717b;
-      --line: #dfe3e6;
-      --paper: #f5f5f3;
-      --white: #ffffff;
-      --accent: #2f5e78;
-      --soft-blue: #edf4f7;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--ink);
-      background: var(--paper);
-      line-height: 1.55;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-      padding: 17px 8%;
-      background: rgba(255, 255, 255, 0.97);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brand {
-      color: var(--ink);
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    header {
-      padding: 105px 10% 88px;
-      background: var(--white);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .eyebrow {
-      margin: 0 0 15px;
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      max-width: 920px;
-      margin: 0;
-      font-size: clamp(46px, 6vw, 84px);
-      line-height: 1.02;
-      letter-spacing: -2.5px;
-    }
-
-    .intro {
-      max-width: 760px;
-      margin: 28px 0 0;
-      color: var(--muted);
-      font-size: 20px;
-    }
-
-    .hero-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 32px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 13px 19px;
-      color: var(--white);
-      background: var(--ink);
-      border-radius: 4px;
-      font-size: 14px;
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .button:hover {
-      background: var(--accent);
-    }
-
-    .button-outline {
-      color: var(--ink);
-      background: transparent;
-      border: 1px solid var(--ink);
-    }
-
-    .button-outline:hover {
-      color: var(--white);
-      background: var(--ink);
-    }
-
-    section {
-      padding: 84px 10%;
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 30px;
-      margin-bottom: 36px;
-    }
-
-    .section-heading h2 {
-      margin: 0;
-      font-size: clamp(32px, 4vw, 48px);
-      letter-spacing: -1.4px;
-    }
-
-    .section-heading p {
-      max-width: 510px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .software-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .software-card {
-      display: flex;
-      flex-direction: column;
-      min-height: 320px;
-      padding: 30px;
-      color: var(--ink);
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-    }
-
-    .software-card:hover {
-      transform: translateY(-4px);
-      border-color: #c3cbd1;
-      box-shadow: 0 14px 30px rgba(29, 37, 44, 0.10);
-    }
-
-    .software-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 64px;
-      height: 64px;
-      margin-bottom: 34px;
-      background: var(--soft-blue);
-      border-radius: 12px;
-    }
-
-    .software-icon img {
-      width: 44px;
-      height: 44px;
-      object-fit: contain;
-    }
-
-    .software-card h3 {
-      margin: 0 0 12px;
-      font-size: 30px;
-      letter-spacing: -0.7px;
-    }
-
-    .software-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: auto;
-      padding-top: 28px;
-      color: var(--accent);
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-      gap: 24px;
-    }
-
-    .about-card {
-      padding: 30px;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-    }
-
-    .about-card h3 {
-      margin: 0 0 14px;
-      font-size: 22px;
-    }
-
-    .about-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 18px;
-    }
-
-    .skill {
-      padding: 7px 11px;
-      color: #4d5962;
-      background: #edf0f1;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .contact-section {
-      color: var(--white);
-      background: var(--ink);
-    }
-
-    .contact-section .section-heading h2,
-    .contact-section .section-heading p {
-      color: var(--white);
-    }
-
-    .contact-section .section-heading p {
-      opacity: 0.82;
-    }
-
-    .contact-email {
-      display: inline-block;
-      padding: 13px 19px;
-      color: var(--ink);
-      background: var(--white);
-      border-radius: 4px;
-      font-size: 14px;
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .contact-email:hover {
-      background: #edf0f1;
-    }
-
-    footer {
-      padding: 25px 10%;
-      color: var(--muted);
-      background: var(--white);
-      font-size: 13px;
-      text-align: center;
-    }
-
-    @media (max-width: 850px) {
-      .software-grid,
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
-      nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 16px 7%;
-      }
-
-      header,
-      section {
-        padding-left: 7%;
-        padding-right: 7%;
-      }
-
-      header {
-        padding-top: 78px;
-        padding-bottom: 68px;
-      }
-
-      .section-heading {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .software-card {
-        min-height: 285px;
-      }
+    :root { --ink:#1d252c; --muted:#66717b; --line:#dfe3e6; --paper:#f5f5f3; --white:#ffffff; --accent:#2f5e78; --soft-blue:#edf4f7; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--ink); background:var(--paper); line-height:1.55; }
+    nav { position:sticky; top:0; z-index:10; display:flex; justify-content:space-between; align-items:center; gap:24px; padding:17px 8%; background:rgba(255,255,255,.97); border-bottom:1px solid var(--line); }
+    .brand { color:var(--ink); font-size:16px; font-weight:800; letter-spacing:.5px; text-decoration:none; }
+    .nav-links { display:flex; flex-wrap:wrap; gap:18px; }
+    .nav-links a { color:var(--muted); font-size:14px; font-weight:700; text-decoration:none; }
+    .nav-links a:hover { color:var(--accent); }
+    header { padding:105px 10% 88px; background:var(--white); border-bottom:1px solid var(--line); }
+    .eyebrow { margin:0 0 15px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; }
+    h1 { max-width:920px; margin:0; font-size:clamp(46px,6vw,84px); line-height:1.02; letter-spacing:-2.5px; }
+    .intro { max-width:760px; margin:28px 0 0; color:var(--muted); font-size:20px; }
+    .hero-links { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+    .button { display:inline-block; padding:13px 19px; color:var(--white); background:var(--ink); border-radius:4px; font-size:14px; font-weight:800; text-decoration:none; }
+    .button:hover { background:var(--accent); }
+    .button-outline { color:var(--ink); background:transparent; border:1px solid var(--ink); }
+    .button-outline:hover { color:var(--white); background:var(--ink); }
+    section { padding:84px 10%; }
+    .section-heading { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:36px; }
+    .section-heading h2 { margin:0; font-size:clamp(32px,4vw,48px); letter-spacing:-1.4px; }
+    .section-heading p { max-width:510px; margin:0; color:var(--muted); font-size:16px; }
+    .software-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+    .software-card { display:flex; flex-direction:column; min-height:320px; padding:30px; color:var(--ink); background:var(--white); border:1px solid var(--line); border-radius:12px; text-decoration:none; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+    .software-card:hover { transform:translateY(-4px); border-color:#c3cbd1; box-shadow:0 14px 30px rgba(29,37,44,.10); }
+    .software-icon { display:flex; align-items:center; justify-content:center; width:64px; height:64px; margin-bottom:34px; background:var(--soft-blue); border-radius:12px; }
+    .software-icon img { width:44px; height:44px; object-fit:contain; }
+    .software-card h3 { margin:0 0 12px; font-size:30px; letter-spacing:-.7px; }
+    .software-card p { margin:0; color:var(--muted); font-size:16px; }
+    .card-footer { display:flex; justify-content:space-between; align-items:center; margin-top:auto; padding-top:28px; color:var(--accent); font-size:14px; font-weight:800; }
+    .about-grid { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr); gap:24px; }
+    .about-card { padding:30px; background:var(--white); border:1px solid var(--line); border-radius:12px; }
+    .about-card h3 { margin:0 0 14px; font-size:22px; }
+    .about-card p { margin:0; color:var(--muted); font-size:16px; }
+    .skills { display:flex; flex-wrap:wrap; gap:9px; margin-top:18px; }
+    .skill { padding:7px 11px; color:#4d5962; background:#edf0f1; border-radius:999px; font-size:12px; font-weight:700; }
+    .contact-section { color:var(--white); background:var(--ink); }
+    .contact-section .section-heading h2, .contact-section .section-heading p { color:var(--white); }
+    .contact-section .section-heading p { opacity:.82; }
+    .contact-email { display:inline-block; padding:13px 19px; color:var(--ink); background:var(--white); border-radius:4px; font-size:14px; font-weight:800; text-decoration:none; }
+    .contact-email:hover { background:#edf0f1; }
+    footer { padding:25px 10%; color:var(--muted); background:var(--white); font-size:13px; text-align:center; }
+    @media (max-width:850px) { .software-grid, .about-grid { grid-template-columns:1fr; } }
+    @media (max-width:650px) {
+      nav { align-items:flex-start; flex-direction:column; padding:16px 7%; }
+      header, section { padding-left:7%; padding-right:7%; }
+      header { padding-top:78px; padding-bottom:68px; }
+      .section-heading { align-items:flex-start; flex-direction:column; }
+      .software-card { min-height:285px; }
     }
   </style>
-
 </head>
-
 <body>
-
   <nav>
     <a class="brand" href="index.html">OFD PORTFOLIO</a>
-
-```
-<div class="nav-links">
-  <a href="#software">Software</a>
-  <a href="#about">Profile</a>
-  <a href="#contact">Contact</a>
-</div>
-```
-
+    <div class="nav-links">
+      <a href="#logiciels">Logiciels</a>
+      <a href="#profil">Profil</a>
+      <a href="#contact">Contact</a>
+    </div>
   </nav>
 
   <header>
-    <p class="eyebrow">Architectural Technologist · CAD Technician</p>
-
-```
-<h1>Olivier Fiset-Dubois</h1>
-
-<p class="intro">
-  Architectural drawings, BIM models, construction details, building-envelope
-  analysis, and visual communication for the built environment.
-</p>
-
-<div class="hero-links">
-  <a class="button" href="#software">View software portfolio</a>
-  <a class="button button-outline" href="#contact">Contact Olivier</a>
-</div>
-```
-
+    <p class="eyebrow">Technologue en architecture · Technicien DAO</p>
+    <h1>Olivier Fiset-Dubois</h1>
+    <p class="intro">Plans architecturaux, modèles BIM, détails de construction, analyses de l’enveloppe du bâtiment et communication visuelle pour l’environnement bâti.</p>
+    <div class="hero-links">
+      <a class="button" href="#logiciels">Voir le portfolio par logiciel</a>
+      <a class="button button-outline" href="#contact">Contacter Olivier</a>
+    </div>
   </header>
 
-  <section id="software">
+  <section id="logiciels">
     <div class="section-heading">
-      <h2>Software portfolio</h2>
-
-```
-  <p>
-    Explore selected work organised by software: technical drafting, BIM
-    documentation, architectural visualisation, and building-performance analysis.
-  </p>
-</div>
-
-<div class="software-grid">
-
-  <a class="software-card" href="autocad.html">
-    <div class="software-icon">
-      <img src="images/AutoCAD/AutoCAD-icon.png" alt="AutoCAD icon">
+      <h2>Portfolio par logiciel</h2>
+      <p>Explorez des travaux sélectionnés, organisés par logiciel : dessin technique, documentation BIM, visualisation architecturale et analyse de performance du bâtiment.</p>
     </div>
 
-    <h3>AutoCAD</h3>
+    <div class="software-grid">
+      <a class="software-card" href="autocad.html">
+        <div class="software-icon"><img src="images/AutoCAD/AutoCAD-icon.png" alt="Icône AutoCAD"></div>
+        <h3>AutoCAD</h3>
+        <p>Détails de construction, plans électriques, assemblages de murs, documentation technique, élévations intérieures et jeux de plans cotés.</p>
+        <div class="card-footer"><span>Voir les travaux AutoCAD</span><span>→</span></div>
+      </a>
 
-    <p>
-      Construction details, electrical plans, wall assemblies, technical
-      documentation, interior elevations, and dimensioned drawing sets.
-    </p>
+      <a class="software-card" href="revit.html">
+        <div class="software-icon"><img src="images/Revit/Revit-icon.png" alt="Icône Revit"></div>
+        <h3>Revit / BIM</h3>
+        <p>Modélisation BIM, plans d’étage, élévations, implantation, documentation coordonnée, vues structurelles et communication de conception.</p>
+        <div class="card-footer"><span>Voir les travaux Revit / BIM</span><span>→</span></div>
+      </a>
 
-    <div class="card-footer">
-      <span>View AutoCAD work</span>
-      <span>→</span>
+      <a class="software-card" href="enscape.html">
+        <div class="software-icon"><img src="images/Enscape/Enscape-icon.png" alt="Icône Enscape"></div>
+        <h3>Enscape</h3>
+        <p>Rendus architecturaux extérieurs et intérieurs, études de matériaux, atmosphère, éclairage, narration visuelle et présentation de projets.</p>
+        <div class="card-footer"><span>Voir les travaux Enscape</span><span>→</span></div>
+      </a>
+
+      <a class="software-card" href="excel.html">
+        <div class="software-icon"><img src="images/Excel/Excel-icon.png" alt="Icône Excel"></div>
+        <h3>Excel</h3>
+        <p>Calculs de l’enveloppe du bâtiment, organisation des données, graphiques de gradient thermique, analyse de performance et communication visuelle.</p>
+        <div class="card-footer"><span>Voir les travaux Excel</span><span>→</span></div>
+      </a>
     </div>
-  </a>
-
-  <a class="software-card" href="revit.html">
-    <div class="software-icon">
-      <img src="images/Revit/Revit-icon.png" alt="Revit icon">
-    </div>
-
-    <h3>Revit / BIM</h3>
-
-    <p>
-      BIM modelling, floor plans, elevations, site planning, coordinated
-      documentation, structural views, and design communication.
-    </p>
-
-    <div class="card-footer">
-      <span>View Revit / BIM work</span>
-      <span>→</span>
-    </div>
-  </a>
-
-  <a class="software-card" href="enscape.html">
-    <div class="software-icon">
-      <img src="images/Enscape/Enscape-icon.png" alt="Enscape icon">
-    </div>
-
-    <h3>Enscape</h3>
-
-    <p>
-      Exterior and interior architectural renders, material studies, atmosphere,
-      lighting, visual storytelling, and project presentation.
-    </p>
-
-    <div class="card-footer">
-      <span>View Enscape work</span>
-      <span>→</span>
-    </div>
-  </a>
-
-  <a class="software-card" href="excel.html">
-    <div class="software-icon">
-      <img src="images/Excel/Excel-icon.png" alt="Excel icon">
-    </div>
-
-    <h3>Excel</h3>
-
-    <p>
-      Thermal-envelope calculations, data organisation, temperature-gradient
-      graphs, building-performance analysis, and visual communication.
-    </p>
-
-    <div class="card-footer">
-      <span>View Excel work</span>
-      <span>→</span>
-    </div>
-  </a>
-
-</div>
-```
-
   </section>
 
-  <section id="about">
+  <section id="profil">
     <div class="section-heading">
-      <h2>Profile</h2>
-
-```
-  <p>
-    A practical portfolio focused on clear technical communication and
-    architectural project development.
-  </p>
-</div>
-
-<div class="about-grid">
-  <article class="about-card">
-    <h3>What I do</h3>
-
-    <p>
-      I create architectural drawings, BIM documentation, construction details,
-      visual presentations, and technical analysis that support design,
-      coordination, and project communication.
-    </p>
-
-    <div class="skills">
-      <span class="skill">Technical Drawings</span>
-      <span class="skill">BIM Coordination</span>
-      <span class="skill">Construction Documentation</span>
-      <span class="skill">Site Planning</span>
-      <span class="skill">Visualisation</span>
-      <span class="skill">Building Envelope</span>
+      <h2>Profil</h2>
+      <p>Un portfolio pratique axé sur une communication technique claire et le développement de projets architecturaux.</p>
     </div>
-  </article>
 
-  <article class="about-card">
-    <h3>Software</h3>
+    <div class="about-grid">
+      <article class="about-card">
+        <h3>Ce que je fais</h3>
+        <p>Je réalise des dessins architecturaux, de la documentation BIM, des détails de construction, des présentations visuelles et des analyses techniques qui appuient la conception, la coordination et la communication des projets.</p>
+        <div class="skills">
+          <span class="skill">Dessins techniques</span>
+          <span class="skill">Coordination BIM</span>
+          <span class="skill">Documentation de construction</span>
+          <span class="skill">Planification de site</span>
+          <span class="skill">Visualisation</span>
+          <span class="skill">Enveloppe du bâtiment</span>
+        </div>
+      </article>
 
-    <p>
-      AutoCAD, Revit, Enscape, and Excel are used across the portfolio to
-      develop, document, analyse, and present architectural work.
-    </p>
-
-    <div class="skills">
-      <span class="skill">AutoCAD</span>
-      <span class="skill">Revit</span>
-      <span class="skill">BIM</span>
-      <span class="skill">Enscape</span>
-      <span class="skill">Excel</span>
-      <span class="skill">Adobe Suite</span>
+      <article class="about-card">
+        <h3>Logiciels</h3>
+        <p>AutoCAD, Revit, Enscape et Excel sont utilisés dans ce portfolio pour développer, documenter, analyser et présenter des projets architecturaux.</p>
+        <div class="skills">
+          <span class="skill">AutoCAD</span>
+          <span class="skill">Revit</span>
+          <span class="skill">BIM</span>
+          <span class="skill">Enscape</span>
+          <span class="skill">Excel</span>
+          <span class="skill">Adobe Suite</span>
+        </div>
+      </article>
     </div>
-  </article>
-</div>
-```
-
   </section>
 
   <section id="contact" class="contact-section">
     <div class="section-heading">
       <div>
-        <h2>Let’s work together.</h2>
-
-```
-    <p>
-      Available for junior architectural technologist, CAD technician,
-      BIM modeller, and technical documentation opportunities.
-    </p>
-  </div>
-
-  <a class="contact-email" href="mailto:olifiso@gmail.com">
-    olifiso@gmail.com
-  </a>
-</div>
-```
-
+        <h2>Travaillons ensemble.</h2>
+        <p>Disponible pour des postes de technologue junior en architecture, technicien DAO, modeleur BIM et documentation technique.</p>
+      </div>
+      <a class="contact-email" href="mailto:olifiso@gmail.com">olifiso@gmail.com</a>
+    </div>
   </section>
 
-  <footer>
-    © 2026 Olivier Fiset-Dubois — Architectural Portfolio
-  </footer>
-
+  <footer>© 2026 Olivier Fiset-Dubois — Portfolio d’architecture</footer>
 </body>
 </html>
