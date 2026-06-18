@@ -1,4 +1,190 @@
 <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enscape | Olivier Fiset-Dubois</title>
+  <style>
+
+    :root { --ink:#1d252c; --muted:#66717b; --line:#dfe3e6; --paper:#f5f5f3; --white:#ffffff; --accent:#2f5e78; --soft-blue:#edf4f7; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--ink); background:var(--paper); line-height:1.55; }
+    nav { position:sticky; top:0; z-index:10; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:17px 8%; background:rgba(255,255,255,.97); border-bottom:1px solid var(--line); }
+    .brand { color:var(--ink); font-size:16px; font-weight:800; letter-spacing:.4px; text-decoration:none; }
+    .nav-links { display:flex; flex-wrap:wrap; gap:18px; }
+    .nav-links a { color:var(--muted); font-size:14px; font-weight:700; text-decoration:none; }
+    .nav-links a:hover, .nav-links a.active { color:var(--accent); }
+    header { padding:78px 10% 62px; background:var(--white); border-bottom:1px solid var(--line); }
+    .software-title { display:flex; align-items:center; gap:18px; }
+    .software-title img { width:54px; height:54px; object-fit:contain; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; }
+    h1 { margin:0; font-size:clamp(42px,6vw,72px); line-height:1.03; letter-spacing:-2px; }
+    .intro { max-width:760px; margin:24px 0 0; color:var(--muted); font-size:19px; }
+    main { padding:76px 10%; }
+    .section-heading { display:flex; justify-content:space-between; align-items:end; gap:28px; margin-bottom:34px; }
+    .section-heading h2 { margin:0; font-size:clamp(30px,4vw,46px); letter-spacing:-1px; }
+    .section-heading p { max-width:500px; margin:0; color:var(--muted); }
+    .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+    .project-card { overflow:hidden; background:var(--white); border:1px solid var(--line); border-radius:12px; }
+    .project-image { display:block; height:275px; padding:12px; background:#edf0f1; border-bottom:1px solid var(--line); }
+    .project-image img { display:block; width:100%; height:100%; object-fit:contain; transition:transform .25s ease; }
+    .project-card:hover .project-image img { transform:scale(1.025); }
+    .project-info { padding:18px; }
+    .project-info h3 { margin:0 0 8px; font-size:19px; }
+    .project-info p { margin:0; color:var(--muted); font-size:14px; }
+    .tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:14px; }
+    .tag { padding:5px 9px; color:#4d5962; background:#edf0f1; border-radius:999px; font-size:11px; font-weight:700; }
+    .back-button { display:inline-block; margin-top:54px; padding:12px 17px; color:var(--white); background:var(--ink); border-radius:4px; font-size:14px; font-weight:800; text-decoration:none; }
+    .back-button:hover { background:var(--accent); }
+    footer { padding:25px 10%; color:var(--muted); background:var(--white); font-size:13px; text-align:center; }
+    @media (max-width:980px) { .gallery { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:650px) {
+      nav { align-items:flex-start; flex-direction:column; padding:16px 7%; }
+      header, main { padding-left:7%; padding-right:7%; }
+      .section-heading { align-items:flex-start; flex-direction:column; }
+      .gallery { grid-template-columns:1fr; }
+      .project-image { height:245px; }
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="index.html">OFD PORTFOLIO</a>
+    <div class="nav-links">
+      <a href="autocad.html">AutoCAD</a>
+      <a href="revit.html">Revit / BIM</a>
+      <a class="active" href="enscape.html">Enscape</a>
+      <a href="excel.html">Excel</a>
+    </div>
+  </nav>
+  <header>
+    <p class="eyebrow">Portfolio logiciel</p>
+    <div class="software-title">
+      <img src="images/Enscape/Enscape-icon.png" alt="Icône Enscape">
+      <h1>Enscape</h1>
+    </div>
+    <p class="intro">Travaux de visualisation architecturale incluant rendus extérieurs et intérieurs, matériaux, éclairage, atmosphère et communication visuelle de l’intention de conception.</p>
+  </header>
+
+  <main>
+    <div class="section-heading">
+      <h2>Visualisations sélectionnées</h2>
+      <p>Cliquez sur une image pour ouvrir le rendu en grand format et voir la composition avec davantage de détails.</p>
+    </div>
+
+    <section class="gallery">
+      <article class="project-card">
+        <a class="project-image" href="images/Enscape/Green-Tree-ext.jpg" target="_blank" rel="noopener">
+          <img src="images/Enscape/Green-Tree-ext.jpg" alt="Rendu extérieur Green Tree">
+        </a>
+        <div class="project-info">
+          <h3>Green Tree — Extérieur</h3>
+          <p>Visualisation extérieure communiquant la forme du bâtiment, sa présence sur le site et l’atmosphère des matériaux.</p>
+          <div class="tags"><span class="tag">Rendu extérieur</span><span class="tag">Enscape</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Enscape/Rendus-ext-Ergo%20H%C3%BCtte.png" target="_blank" rel="noopener">
+          <img src="images/Enscape/Rendus-ext-Ergo%20H%C3%BCtte.png" alt="Rendu extérieur Ergo Hütte">
+        </a>
+        <div class="project-info">
+          <h3>Ergo Hütte — Extérieur</h3>
+          <p>Rendu extérieur mettant en valeur les matériaux naturels, la forme architecturale et l’expérience des espaces extérieurs.</p>
+          <div class="tags"><span class="tag">Projet résidentiel</span><span class="tag">Rendu extérieur</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Enscape/Rendus-int-Ergo%20H%C3%BCtte.png" target="_blank" rel="noopener">
+          <img src="images/Enscape/Rendus-int-Ergo%20H%C3%BCtte.png" alt="Rendu intérieur Ergo Hütte">
+        </a>
+        <div class="project-info">
+          <h3>Ergo Hütte — Intérieur</h3>
+          <p>Visualisation intérieure montrant l’espace de vie ouvert, les matériaux et l’atmosphère du projet.</p>
+          <div class="tags"><span class="tag">Rendu intérieur</span><span class="tag">Étude de matériaux</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Enscape/VYCO1.png" target="_blank" rel="noopener">
+          <img src="images/Enscape/VYCO1.png" alt="Étude de visualisation 01">
+        </a>
+        <div class="project-info">
+          <h3>Étude de visualisation 01</h3>
+          <p>Image architecturale explorant la composition, la lumière et la présentation de l’espace.</p>
+          <div class="tags"><span class="tag">Enscape</span><span class="tag">Visualisation</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Enscape/VYCO2.png" target="_blank" rel="noopener">
+          <img src="images/Enscape/VYCO2.png" alt="Étude de visualisation 02">
+        </a>
+        <div class="project-info">
+          <h3>Étude de visualisation 02</h3>
+          <p>Vue de projet rendue pour communiquer l’intention architecturale et l’atmosphère.</p>
+          <div class="tags"><span class="tag">Rendu</span><span class="tag">Architecture</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Enscape/VYCO3.png" target="_blank" rel="noopener">
+          <img src="images/Enscape/VYCO3.png" alt="Étude de visualisation 03">
+        </a>
+        <div class="project-info">
+          <h3>Étude de visualisation 03</h3>
+          <p>Rendu en perspective montrant la profondeur spatiale, l’expression des matériaux et la communication du projet.</p>
+          <div class="tags"><span class="tag">Perspective</span><span class="tag">Enscape</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Enscape/VYCO5.png" target="_blank" rel="noopener">
+          <img src="images/Enscape/VYCO5.png" alt="Étude de visualisation 05">
+        </a>
+        <div class="project-info">
+          <h3>Étude de visualisation 05</h3>
+          <p>Rendu architectural mettant l’accent sur la forme, le contexte et la narration visuelle.</p>
+          <div class="tags"><span class="tag">Rendu</span><span class="tag">Communication de conception</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Enscape/VYCO6.png" target="_blank" rel="noopener">
+          <img src="images/Enscape/VYCO6.png" alt="Étude de visualisation 06">
+        </a>
+        <div class="project-info">
+          <h3>Étude de visualisation 06</h3>
+          <p>Vue architecturale rendue démontrant la lumière, les matériaux et l’atmosphère environnementale.</p>
+          <div class="tags"><span class="tag">Éclairage</span><span class="tag">Étude de matériaux</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Enscape/VYCO7.png" target="_blank" rel="noopener">
+          <img src="images/Enscape/VYCO7.png" alt="Étude de visualisation 07">
+        </a>
+        <div class="project-info">
+          <h3>Étude de visualisation 07</h3>
+          <p>Image architecturale conçue pour présenter l’échelle, l’espace et le caractère du projet.</p>
+          <div class="tags"><span class="tag">Architecture</span><span class="tag">Enscape</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <a class="project-image" href="images/Enscape/VYCO8.png" target="_blank" rel="noopener">
+          <img src="images/Enscape/VYCO8.png" alt="Étude de visualisation 08">
+        </a>
+        <div class="project-info">
+          <h3>Étude de visualisation 08</h3>
+          <p>Visualisation finale montrant l’ambiance, la composition et l’intention architecturale.</p>
+          <div class="tags"><span class="tag">Visualisation</span><span class="tag">Présentation</span></div>
+        </div>
+      </article>
+
+    </section>
+
+    <a class="back-button" href="index.html">← Retour à l’accueil</a>
+  </main>
+
+  <footer>© 2026 Olivier Fiset-Dubois — Portfolio d’architecture</footer>
+</body>
+</html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
