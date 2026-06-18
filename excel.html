@@ -1,11 +1,10 @@
-https://boioli.github.io/Portfolio/revit.html
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Revit / BIM Work | Olivier Fiset-Dubois</title>
+  <title>Excel Analysis Work | Olivier Fiset-Dubois</title>
 
   <style>
     :root {
@@ -15,10 +14,15 @@ https://boioli.github.io/Portfolio/revit.html
       --paper: #f5f5f3;
       --white: #ffffff;
       --accent: #2f5e78;
+      --soft: #edf4f7;
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -103,7 +107,7 @@ https://boioli.github.io/Portfolio/revit.html
     }
 
     .intro {
-      max-width: 750px;
+      max-width: 760px;
       margin: 24px 0 0;
       color: var(--muted);
       font-size: 19px;
@@ -133,10 +137,11 @@ https://boioli.github.io/Portfolio/revit.html
       color: var(--muted);
     }
 
-    .gallery {
+    .analysis-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+      gap: 24px;
+      align-items: stretch;
     }
 
     .project-card {
@@ -148,8 +153,8 @@ https://boioli.github.io/Portfolio/revit.html
 
     .project-image {
       display: block;
-      height: 275px;
-      padding: 12px;
+      min-height: 500px;
+      padding: 18px;
       background: #edf0f1;
       border-bottom: 1px solid var(--line);
     }
@@ -163,29 +168,29 @@ https://boioli.github.io/Portfolio/revit.html
     }
 
     .project-card:hover .project-image img {
-      transform: scale(1.025);
+      transform: scale(1.015);
     }
 
     .project-info {
-      padding: 18px;
+      padding: 22px;
     }
 
     .project-info h3 {
-      margin: 0 0 8px;
-      font-size: 19px;
+      margin: 0 0 10px;
+      font-size: 22px;
     }
 
     .project-info p {
       margin: 0;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 15px;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 7px;
-      margin-top: 14px;
+      margin-top: 16px;
     }
 
     .tag {
@@ -195,6 +200,63 @@ https://boioli.github.io/Portfolio/revit.html
       border-radius: 999px;
       font-size: 11px;
       font-weight: 700;
+    }
+
+    .side-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .info-card {
+      padding: 26px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .info-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 16px;
+      color: var(--white);
+      background: var(--accent);
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .info-card h3 {
+      margin: 0 0 9px;
+      font-size: 20px;
+    }
+
+    .info-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .future-card {
+      padding: 26px;
+      background: var(--soft);
+      border: 1px solid #d9e5eb;
+      border-radius: 12px;
+    }
+
+    .future-card h3 {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 20px;
+    }
+
+    .future-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     .back-button {
@@ -222,8 +284,12 @@ https://boioli.github.io/Portfolio/revit.html
     }
 
     @media (max-width: 980px) {
-      .gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .analysis-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image {
+        min-height: 390px;
       }
     }
 
@@ -245,12 +311,9 @@ https://boioli.github.io/Portfolio/revit.html
         flex-direction: column;
       }
 
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-
       .project-image {
-        height: 245px;
+        min-height: 280px;
+        padding: 12px;
       }
     }
   </style>
@@ -265,9 +328,9 @@ https://boioli.github.io/Portfolio/revit.html
 ```
 <div class="nav-links">
   <a href="autocad.html">AutoCAD</a>
-  <a class="active" href="revit.html">Revit / BIM</a>
+  <a href="revit.html">Revit / BIM</a>
   <a href="enscape.html">Enscape</a>
-  <a href="excel.html">Excel</a>
+  <a class="active" href="excel.html">Excel</a>
 </div>
 ```
 
@@ -278,14 +341,14 @@ https://boioli.github.io/Portfolio/revit.html
 
 ```
 <div class="software-title">
-  <img src="images/Revit/Revit-icon.png" alt="Revit icon">
-  <h1>Revit / BIM</h1>
+  <img src="images/Excel/Excel-icon.png" alt="Excel icon">
+  <h1>Excel</h1>
 </div>
 
 <p class="intro">
-  BIM modelling, architectural documentation, site planning, floor plans,
-  elevations, structural coordination, and visual presentation developed
-  through Revit-based workflows.
+  Technical building-performance analysis using spreadsheets, calculations,
+  thermal-envelope data, and visual graphs to communicate construction
+  performance clearly.
 </p>
 ```
 
@@ -293,172 +356,71 @@ https://boioli.github.io/Portfolio/revit.html
 
   <main>
     <div class="section-heading">
-      <h2>Selected BIM work</h2>
+      <h2>Building-envelope analysis</h2>
 
 ```
   <p>
-    Click any image to open the full-size drawing, model view, render, or
-    documentation sample.
+    This work demonstrates technical calculation, data organisation, and
+    visual communication of thermal performance.
   </p>
 </div>
 
-<section class="gallery">
+<section class="analysis-grid">
 
   <article class="project-card">
-    <a class="project-image" href="images/Revit/RDC-Green tree.png" target="_blank" rel="noopener">
-      <img src="images/Revit/RDC-Green tree.png" alt="Green Tree ground floor plan">
+    <a class="project-image" href="images/Excel/Gradient-thermique.jpg" target="_blank" rel="noopener">
+      <img src="images/Excel/Gradient-thermique.jpg" alt="Thermal gradient graph">
     </a>
+
     <div class="project-info">
-      <h3>Green Tree — Ground Floor</h3>
-      <p>Ground-floor BIM plan showing layout, spatial organisation, and project coordination.</p>
+      <h3>Thermal Gradient Graph</h3>
+
+      <p>
+        Spreadsheet-based temperature-gradient visualisation used to
+        communicate thermal behaviour across a building-envelope assembly.
+      </p>
+
       <div class="tags">
-        <span class="tag">Revit</span>
-        <span class="tag">Floor Plan</span>
-        <span class="tag">BIM</span>
+        <span class="tag">Excel</span>
+        <span class="tag">Thermal Analysis</span>
+        <span class="tag">Building Envelope</span>
+        <span class="tag">Data Visualisation</span>
       </div>
     </div>
   </article>
 
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Etage-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Etage-ESP.png" alt="Upper floor plan">
-    </a>
-    <div class="project-info">
-      <h3>Upper-Floor Plan</h3>
-      <p>Building-level plan showing spatial distribution and organised architectural information.</p>
-      <div class="tags">
-        <span class="tag">Plan</span>
-        <span class="tag">Documentation</span>
-      </div>
-    </div>
-  </article>
+  <aside class="side-panel">
 
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Implantation-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Implantation-ESP.png" alt="Site plan">
-    </a>
-    <div class="project-info">
-      <h3>Site Plan / Implantation</h3>
-      <p>Site-planning view showing the project relationship with its surrounding context.</p>
-      <div class="tags">
-        <span class="tag">Site Planning</span>
-        <span class="tag">Revit</span>
-      </div>
-    </div>
-  </article>
+    <article class="info-card">
+      <span class="info-number">1</span>
+      <h3>Technical Calculations</h3>
 
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Elevation-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Elevation-ESP.png" alt="Building elevation">
-    </a>
-    <div class="project-info">
-      <h3>Building Elevation</h3>
-      <p>Exterior elevation prepared for architectural communication and documentation.</p>
-      <div class="tags">
-        <span class="tag">Elevation</span>
-        <span class="tag">Documentation</span>
-      </div>
-    </div>
-  </article>
+      <p>
+        Organising calculation inputs and output values to support
+        construction and building-performance analysis.
+      </p>
+    </article>
 
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Structure-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Structure-ESP.png" alt="Structural model">
-    </a>
-    <div class="project-info">
-      <h3>Structural Coordination</h3>
-      <p>Model view illustrating building structure and coordination of technical elements.</p>
-      <div class="tags">
-        <span class="tag">Structure</span>
-        <span class="tag">Coordination</span>
-      </div>
-    </div>
-  </article>
+    <article class="info-card">
+      <span class="info-number">2</span>
+      <h3>Clear Visual Communication</h3>
 
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Comp-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Comp-ESP.png" alt="BIM composition">
-    </a>
-    <div class="project-info">
-      <h3>Model Composition</h3>
-      <p>Coordinated BIM view communicating the overall building composition and design intent.</p>
-      <div class="tags">
-        <span class="tag">BIM</span>
-        <span class="tag">Model View</span>
-      </div>
-    </div>
-  </article>
+      <p>
+        Translating numerical information into charts and diagrams that
+        make technical results easier to interpret.
+      </p>
+    </article>
 
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Detail1-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Detail1-ESP.png" alt="Revit detail one">
-    </a>
-    <div class="project-info">
-      <h3>Technical Detail I</h3>
-      <p>Detailed Revit documentation showing organised technical information.</p>
-      <div class="tags">
-        <span class="tag">Detailing</span>
-        <span class="tag">BIM</span>
-      </div>
-    </div>
-  </article>
+    <article class="future-card">
+      <h3>More Excel samples</h3>
 
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Detail2-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Detail2-ESP.png" alt="Revit detail two">
-    </a>
-    <div class="project-info">
-      <h3>Technical Detail II</h3>
-      <p>Construction-related technical documentation produced through the Revit workflow.</p>
-      <div class="tags">
-        <span class="tag">Detailing</span>
-        <span class="tag">Documentation</span>
-      </div>
-    </div>
-  </article>
+      <p>
+        Future additions can include RSI / ITS wall assemblies, roof and
+        floor calculation sheets, condensation checks, and material data.
+      </p>
+    </article>
 
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Detail3-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Detail3-ESP.png" alt="Revit detail three">
-    </a>
-    <div class="project-info">
-      <h3>Technical Detail III</h3>
-      <p>Additional technical drawing sample showing a clear information hierarchy.</p>
-      <div class="tags">
-        <span class="tag">Detailing</span>
-        <span class="tag">Revit</span>
-      </div>
-    </div>
-  </article>
-
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/Rendu-ESP.png" target="_blank" rel="noopener">
-      <img src="images/Revit/Rendu-ESP.png" alt="Revit rendering">
-    </a>
-    <div class="project-info">
-      <h3>Architectural Render</h3>
-      <p>Visual project presentation communicating form, atmosphere, and architectural intent.</p>
-      <div class="tags">
-        <span class="tag">Visualisation</span>
-        <span class="tag">Revit</span>
-      </div>
-    </div>
-  </article>
-
-  <article class="project-card">
-    <a class="project-image" href="images/Revit/image083.png" target="_blank" rel="noopener">
-      <img src="images/Revit/image083.png" alt="Additional Revit project sample">
-    </a>
-    <div class="project-info">
-      <h3>Project Documentation Sample</h3>
-      <p>Additional BIM material supporting the project’s visual and technical presentation.</p>
-      <div class="tags">
-        <span class="tag">BIM</span>
-        <span class="tag">Project Work</span>
-      </div>
-    </div>
-  </article>
-
+  </aside>
 </section>
 
 <a class="back-button" href="index.html">← Back to homepage</a>
