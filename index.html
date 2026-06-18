@@ -1,232 +1,650 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Olivier Fiset-Dubois Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olivier Fiset-Dubois | Architectural Portfolio</title>
 
   <style>
+    :root {
+      --ink: #1d252c;
+      --muted: #66717b;
+      --line: #dfe3e6;
+      --paper: #f5f5f3;
+      --white: #ffffff;
+      --accent: #2f5e78;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f6f6f4;
-      color: #1f1f1f;
-      line-height: 1.6;
-    }
-
-    header {
-      padding: 80px 10%;
-      background: #ffffff;
-      border-bottom: 1px solid #ddd;
-    }
-
-    header h1 {
-      font-size: 52px;
-      margin: 0;
-    }
-
-    header p {
-      font-size: 22px;
-      color: #555;
-      max-width: 700px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
     }
 
     nav {
-      margin-top: 30px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 17px 8%;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
     }
 
-    nav a {
-      display: inline-block;
-      margin-right: 12px;
-      margin-bottom: 12px;
-      padding: 10px 16px;
-      border: 1px solid #222;
-      border-radius: 999px;
+    .brand {
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
       text-decoration: none;
-      color: #222;
-      background: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    header {
+      padding: 95px 10% 85px;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(42px, 6vw, 82px);
+      line-height: 1.02;
+      letter-spacing: -2.5px;
+    }
+
+    .intro {
+      max-width: 720px;
+      margin: 28px 0 30px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 19px;
+      color: var(--white);
+      background: var(--ink);
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: var(--accent);
     }
 
     section {
-      padding: 60px 10%;
+      padding: 82px 10%;
     }
 
-    h2 {
-      font-size: 34px;
-      margin-bottom: 24px;
-    }
-
-    .software-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
       gap: 28px;
+      margin-bottom: 34px;
     }
 
-    .card {
-      background: #ffffff;
-      border: 1px solid #ddd;
-      border-radius: 18px;
-      padding: 24px;
+    .section-top h2 {
+      margin: 0;
+      font-size: clamp(31px, 4vw, 48px);
+      letter-spacing: -1.3px;
     }
 
-    .card h3 {
-      margin-top: 0;
-      font-size: 26px;
+    .section-top p {
+      max-width: 510px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
     }
 
-    .example {
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px solid #e5e5e5;
+    .software-heading {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 9px;
+    }
+
+    .software-heading img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .software-heading h2 {
+      margin: 0;
+    }
+
+    .drawing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .drawing-card {
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    .drawing-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 270px;
+      padding: 14px;
+      background: #eef0f1;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .drawing-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.25s ease;
+    }
+
+    .drawing-card:hover .drawing-image img {
+      transform: scale(1.025);
+    }
+
+    .drawing-copy {
+      padding: 18px;
+    }
+
+    .drawing-copy h3 {
+      margin: 0 0 7px;
+      font-size: 18px;
+    }
+
+    .drawing-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 13px;
     }
 
     .tag {
-      display: inline-block;
-      margin-top: 8px;
-      margin-right: 6px;
-      padding: 5px 10px;
-      background: #eeeeee;
+      padding: 5px 9px;
+      color: #4d5962;
+      background: #edf0f1;
       border-radius: 999px;
-      font-size: 13px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .coming-soon-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .coming-soon {
+      min-height: 230px;
+      padding: 28px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    .coming-soon h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .coming-soon p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact-section {
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .contact-section h2,
+    .contact-section p {
+      color: var(--white);
+    }
+
+    .contact-section .button {
+      color: var(--ink);
+      background: var(--white);
     }
 
     footer {
-      padding: 40px 10%;
-      background: #1f1f1f;
-      color: white;
+      padding: 25px 10%;
+      color: var(--muted);
+      background: var(--white);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .drawing-grid,
+      .coming-soon-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 7%;
+      }
+
+      header,
+      section {
+        padding-left: 7%;
+        padding-right: 7%;
+      }
+
+      header {
+        padding-top: 72px;
+        padding-bottom: 65px;
+      }
+
+      .section-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .drawing-grid,
+      .coming-soon-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .drawing-image {
+        height: 245px;
+      }
     }
   </style>
+
 </head>
 
 <body>
 
-  <header>
-    <h1>Olivier Fiset-Dubois</h1>
-    <p>
-      Architectural Technologist / CAD Technician creating technical drawings,
-      BIM models, construction details, and architectural visualizations.
-    </p>
+  <nav>
+    <a class="brand" href="#">OFD PORTFOLIO</a>
 
-    <nav>
-      <a href="#autocad">AutoCAD</a>
-      <a href="#revit">Revit / BIM</a>
-      <a href="#enscape">Enscape</a>
-      <a href="#excel">Excel</a>
-      <a href="#contact">Contact</a>
-    </nav>
+```
+<div class="nav-links">
+  <a href="#autocad">AutoCAD</a>
+  <a href="#revit">Revit / BIM</a>
+  <a href="#enscape">Enscape</a>
+  <a href="#excel">Excel</a>
+  <a href="#contact">Contact</a>
+</div>
+```
+
+  </nav>
+
+  <header>
+    <p class="eyebrow">Architectural Technologist · CAD Technician</p>
+
+```
+<h1>Olivier Fiset-Dubois</h1>
+
+<p class="intro">
+  Architectural drawings, BIM models, construction details, technical
+  documentation, and visual communication for the built environment.
+</p>
+
+<a class="button" href="#autocad">View selected work</a>
+```
+
   </header>
 
-  <section>
-    <h2>Software Examples</h2>
-
-    <div class="software-grid">
-
-      <div class="card" id="autocad">
-        <h3>AutoCAD</h3>
-        <p>
-          Technical drafting, construction details, wall assemblies,
-          electrical plans, and bathroom elevations.
-        </p>
-
-        <div class="example">
-          <strong>Multi-Residential Section & Details</strong>
-          <p>Building section with enlarged construction details and material annotations.</p>
-          <span class="tag">Technical Drawing</span>
-          <span class="tag">Construction Detail</span>
-        </div>
-
-        <div class="example">
-          <strong>Electrical Plan</strong>
-          <p>Accessible apartment electrical layout with dimensions and fixture placement.</p>
-          <span class="tag">Electrical Plan</span>
-          <span class="tag">Accessibility</span>
-        </div>
-
-        <div class="example">
-          <strong>Bathroom Elevations</strong>
-          <p>Interior elevations showing fixtures, dimensions, and accessible conversion planning.</p>
-          <span class="tag">Interior Elevation</span>
-          <span class="tag">Dimensioning</span>
+  <section id="autocad">
+    <div class="section-top">
+      <div>
+        <div class="software-heading">
+          <img src="AutoCAD-icon.png" alt="AutoCAD icon">
+          <h2>AutoCAD</h2>
         </div>
       </div>
 
-      <div class="card" id="revit">
-        <h3>Revit / BIM</h3>
-        <p>
-          BIM modeling, building coordination, collaborative design,
-          and architectural documentation.
-        </p>
+```
+  <p>
+    Selected technical drawings including construction details, electrical
+    layouts, wall assemblies, plans, and interior elevations.
+  </p>
+</div>
 
-        <div class="example">
-          <strong>Green Tree Ground Floor</strong>
-          <p>BIM collaboration project with civil engineering students using Revit.</p>
-          <span class="tag">BIM</span>
-          <span class="tag">Team Project</span>
-        </div>
+<div class="drawing-grid">
 
-        <div class="example">
-          <strong>Kuujjuaq Sustainable District</strong>
-          <p>Site plan, building relationship, circulation, and sustainable design strategy.</p>
-          <span class="tag">Site Planning</span>
-          <span class="tag">Documentation</span>
-        </div>
+  <article class="drawing-card">
+    <a class="drawing-image" href="M1-comp.png" target="_blank" rel="noopener">
+      <img src="M1-comp.png" alt="Technical drawing M1">
+    </a>
+    <div class="drawing-copy">
+      <h3>Technical Drawing Set — M1</h3>
+      <p>Construction documentation and technical drawing presentation.</p>
+      <div class="tag-row">
+        <span class="tag">AutoCAD</span>
+        <span class="tag">Technical Drawing</span>
       </div>
-
-      <div class="card" id="enscape">
-        <h3>Enscape</h3>
-        <p>
-          Architectural rendering, interior views, exterior views,
-          material presentation, and atmosphere.
-        </p>
-
-        <div class="example">
-          <strong>Ergo Hütte Exterior & Interior Renders</strong>
-          <p>Chalet visualization showing terrace, natural materials, and open interior space.</p>
-          <span class="tag">Rendering</span>
-          <span class="tag">Residential Design</span>
-        </div>
-
-        <div class="example">
-          <strong>Green Tree Interior View</strong>
-          <p>Interior rendering with biophilic design, natural light, and shared living space.</p>
-          <span class="tag">Interior Render</span>
-          <span class="tag">Biophilic Design</span>
-        </div>
-      </div>
-
-      <div class="card" id="excel">
-        <h3>Excel</h3>
-        <p>
-          Technical calculations, thermal envelope analysis,
-          and visual communication of building performance.
-        </p>
-
-        <div class="example">
-          <strong>Thermal Gradient Graph</strong>
-          <p>Envelope temperature gradient based on thermal resistance and vapor calculations.</p>
-          <span class="tag">Building Envelope</span>
-          <span class="tag">Technical Analysis</span>
-        </div>
-
-        <div class="example">
-          <strong>RSI / ITS Wall Assembly Data</strong>
-          <p>Wall, floor, and roof composition data for code-related performance documentation.</p>
-          <span class="tag">Code</span>
-          <span class="tag">Envelope</span>
-        </div>
-      </div>
-
     </div>
+  </article>
+
+  <article class="drawing-card">
+    <a class="drawing-image" href="M2-comp.png" target="_blank" rel="noopener">
+      <img src="M2-comp.png" alt="Technical drawing M2">
+    </a>
+    <div class="drawing-copy">
+      <h3>Technical Drawing Set — M2</h3>
+      <p>Architectural drawing sample from a coordinated drawing package.</p>
+      <div class="tag-row">
+        <span class="tag">AutoCAD</span>
+        <span class="tag">Documentation</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="drawing-card">
+    <a class="drawing-image" href="M4-comp.png" target="_blank" rel="noopener">
+      <img src="M4-comp.png" alt="Technical drawing M4">
+    </a>
+    <div class="drawing-copy">
+      <h3>Technical Drawing Set — M4</h3>
+      <p>Detailed drawing excerpt showing clear information hierarchy.</p>
+      <div class="tag-row">
+        <span class="tag">AutoCAD</span>
+        <span class="tag">Detailing</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="drawing-card">
+    <a class="drawing-image" href="M6-comp.png" target="_blank" rel="noopener">
+      <img src="M6-comp.png" alt="Technical drawing M6">
+    </a>
+    <div class="drawing-copy">
+      <h3>Technical Drawing Set — M6</h3>
+      <p>Construction-focused drawing prepared for technical communication.</p>
+      <div class="tag-row">
+        <span class="tag">AutoCAD</span>
+        <span class="tag">Construction</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="drawing-card">
+    <a class="drawing-image" href="M7-comp.png" target="_blank" rel="noopener">
+      <img src="M7-comp.png" alt="Technical drawing M7">
+    </a>
+    <div class="drawing-copy">
+      <h3>Technical Drawing Set — M7</h3>
+      <p>Architectural documentation and drawing coordination sample.</p>
+      <div class="tag-row">
+        <span class="tag">AutoCAD</span>
+        <span class="tag">Drawing Set</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="drawing-card">
+    <a class="drawing-image" href="P1-comp.png" target="_blank" rel="noopener">
+      <img src="P1-comp.png" alt="Plan drawing P1">
+    </a>
+    <div class="drawing-copy">
+      <h3>Plan Drawing — P1</h3>
+      <p>Plan-based documentation showing spatial layout and technical information.</p>
+      <div class="tag-row">
+        <span class="tag">Plan</span>
+        <span class="tag">AutoCAD</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="drawing-card">
+    <a class="drawing-image" href="T1-comp.png" target="_blank" rel="noopener">
+      <img src="T1-comp.png" alt="Technical drawing T1">
+    </a>
+    <div class="drawing-copy">
+      <h3>Technical Drawing — T1</h3>
+      <p>Detailed technical drawing with clear annotations and dimensions.</p>
+      <div class="tag-row">
+        <span class="tag">Detailing</span>
+        <span class="tag">Dimensioning</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="drawing-card">
+    <a class="drawing-image" href="T2-comp.png" target="_blank" rel="noopener">
+      <img src="T2-comp.png" alt="Technical drawing T2">
+    </a>
+    <div class="drawing-copy">
+      <h3>Technical Drawing — T2</h3>
+      <p>Technical documentation prepared for architectural communication.</p>
+      <div class="tag-row">
+        <span class="tag">Construction</span>
+        <span class="tag">AutoCAD</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="drawing-card">
+    <a class="drawing-image" href="Wall-details.png" target="_blank" rel="noopener">
+      <img src="Wall-details.png" alt="Wall construction details">
+    </a>
+    <div class="drawing-copy">
+      <h3>Wall Construction Details</h3>
+      <p>Wall assemblies and enlarged construction-detail documentation.</p>
+      <div class="tag-row">
+        <span class="tag">Wall Assembly</span>
+        <span class="tag">Detailing</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="drawing-card">
+    <a class="drawing-image" href="electrical-plan.png" target="_blank" rel="noopener">
+      <img src="electrical-plan.png" alt="Electrical plan">
+    </a>
+    <div class="drawing-copy">
+      <h3>Electrical Plan</h3>
+      <p>Apartment electrical layout showing fixture placement and dimensions.</p>
+      <div class="tag-row">
+        <span class="tag">Electrical Plan</span>
+        <span class="tag">Accessibility</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="drawing-card">
+    <a class="drawing-image" href="Shower-elev.png" target="_blank" rel="noopener">
+      <img src="Shower-elev.png" alt="Shower elevation">
+    </a>
+    <div class="drawing-copy">
+      <h3>Shower Elevation</h3>
+      <p>Interior elevation with fixtures, dimensions, and accessibility considerations.</p>
+      <div class="tag-row">
+        <span class="tag">Interior Elevation</span>
+        <span class="tag">Accessibility</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="drawing-card">
+    <a class="drawing-image" href="image055.png" target="_blank" rel="noopener">
+      <img src="image055.png" alt="Architectural drawing sample">
+    </a>
+    <div class="drawing-copy">
+      <h3>Architectural Drawing Sample</h3>
+      <p>Additional technical drawing material from the portfolio.</p>
+      <div class="tag-row">
+        <span class="tag">AutoCAD</span>
+        <span class="tag">Technical Documentation</span>
+      </div>
+    </div>
+  </article>
+
+</div>
+```
+
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: olifiso@gmail.com</p>
-    <p>Location: Belgium / Canada</p>
+  <section id="revit">
+    <div class="section-top">
+      <h2>Revit / BIM</h2>
+      <p>
+        BIM modeling, building coordination, documentation, and collaborative
+        design work will be added here next.
+      </p>
+    </div>
+
+```
+<div class="coming-soon-grid">
+  <div class="coming-soon">
+    <h3>Green Tree Ground Floor</h3>
+    <p>Collaborative Revit project developed with civil engineering students.</p>
+  </div>
+
+  <div class="coming-soon">
+    <h3>Kuujjuaq Sustainable District</h3>
+    <p>Site planning, circulation, building relationships, and sustainable strategy.</p>
+  </div>
+
+  <div class="coming-soon">
+    <h3>BIM Documentation</h3>
+    <p>Model organisation, sheets, views, and coordinated design information.</p>
+  </div>
+</div>
+```
+
+  </section>
+
+  <section id="enscape">
+    <div class="section-top">
+      <h2>Enscape</h2>
+      <p>
+        Exterior and interior visualisations will be added here, including the
+        Ergo Hütte and Green Tree render work.
+      </p>
+    </div>
+
+```
+<div class="coming-soon-grid">
+  <div class="coming-soon">
+    <h3>Ergo Hütte Exterior</h3>
+    <p>Residential visualization focused on natural materials and outdoor space.</p>
+  </div>
+
+  <div class="coming-soon">
+    <h3>Ergo Hütte Interior</h3>
+    <p>Interior visualisation showing layout, atmosphere, and material choices.</p>
+  </div>
+
+  <div class="coming-soon">
+    <h3>Green Tree Interior</h3>
+    <p>Biophilic interior concept with natural light and shared living areas.</p>
+  </div>
+</div>
+```
+
+  </section>
+
+  <section id="excel">
+    <div class="section-top">
+      <h2>Excel</h2>
+      <p>
+        Building-envelope calculations, thermal-gradient graphs, and wall-assembly
+        performance documentation will be added here.
+      </p>
+    </div>
+
+```
+<div class="coming-soon-grid">
+  <div class="coming-soon">
+    <h3>Thermal Gradient Graph</h3>
+    <p>Envelope temperature analysis based on thermal resistance and vapour calculations.</p>
+  </div>
+
+  <div class="coming-soon">
+    <h3>RSI / ITS Wall Assembly Data</h3>
+    <p>Wall, floor, and roof composition data for technical performance documentation.</p>
+  </div>
+
+  <div class="coming-soon">
+    <h3>Building Performance Analysis</h3>
+    <p>Clear visual communication of construction and envelope performance data.</p>
+  </div>
+</div>
+```
+
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="section-top">
+      <div>
+        <h2>Let’s work together.</h2>
+        <p>
+          Available for junior architectural technologist, CAD technician,
+          BIM modeller, and technical documentation opportunities.
+        </p>
+      </div>
+
+```
+  <a class="button" href="mailto:olifiso@gmail.com">Email Olivier</a>
+</div>
+```
+
   </section>
 
   <footer>
-    <p>© Olivier Fiset-Dubois — Architectural Portfolio</p>
+    © 2026 Olivier Fiset-Dubois — Architectural Portfolio
   </footer>
 
 </body>
