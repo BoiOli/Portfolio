@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olivier Fiset-Dubois | Portfolio</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1f2933;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 8%;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid #e7e7e7;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: #1f2933;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      min-height: 72vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 12%;
+      background: #f5f6f7;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #59636d;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(42px, 7vw, 88px);
+      line-height: 1.03;
+      letter-spacing: -2px;
+    }
+
+    .intro {
+      max-width: 650px;
+      margin: 28px 0;
+      font-size: 20px;
+      color: #4e5963;
+    }
+
+    .button {
+      display: inline-block;
+      width: fit-content;
+      padding: 13px 21px;
+      color: white;
+      background: #1f2933;
+      border-radius: 3px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: #46515b;
+    }
+
+    section {
+      padding: 82px 12%;
+    }
+
+    h2 {
+      margin: 0 0 35px;
+      font-size: 36px;
+      letter-spacing: -1px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      border: 1px solid #e2e4e6;
+      background: white;
+    }
+
+    .project-image {
+      height: 270px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #dfe4e7;
+      color: #5c6770;
+      font-size: 15px;
+    }
+
+    .project-content {
+      padding: 22px;
+    }
+
+    .project-content h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .project-meta {
+      margin: 0 0 12px;
+      color: #68737d;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .project-content p {
+      margin: 0;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      padding: 10px 15px;
+      border: 1px solid #cfd5d9;
+      border-radius: 99px;
+      font-weight: 600;
+    }
+
+    .contact {
+      color: white;
+      background: #1f2933;
+    }
+
+    .contact h2,
+    .contact p {
+      color: white;
+    }
+
+    .contact .button {
+      color: #1f2933;
+      background: white;
+    }
+
+    footer {
+      padding: 22px 12%;
+      color: #68737d;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        padding: 16px 6%;
+      }
+
+      nav a {
+        margin-left: 10px;
+        font-size: 12px;
+      }
+
+      .hero,
+      section {
+        padding-left: 7%;
+        padding-right: 7%;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">OFD</div>
+    <div>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <p class="eyebrow">Architectural Technologist · CAD Designer</p>
+    <h1>Olivier Fiset-Dubois</h1>
+    <p class="intro">
+      Portfolio of architectural drawings, BIM modelling, technical documentation,
+      and construction-focused design work.
+    </p>
+    <a class="button" href="#projects">View selected work</a>
+  </header>
+
+  <section id="projects">
+    <h2>Selected projects</h2>
+
+    <div class="project-grid">
+      <article class="project-card">
+        <div class="project-image">Project image coming soon</div>
+        <div class="project-content">
+          <h3>Architectural Drawing Package</h3>
+          <p class="project-meta">AutoCAD · Technical Documentation</p>
+          <p>
+            Technical drawings and coordinated documentation prepared for an
+            architectural project.
+          </p>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">Project image coming soon</div>
+        <div class="project-content">
+          <h3>BIM / Revit Modelling</h3>
+          <p class="project-meta">Revit · BIM Coordination</p>
+          <p>
+            Development of an organised 3D model with clear views, sheets,
+            documentation, and design coordination.
+          </p>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">Project image coming soon</div>
+        <div class="project-content">
+          <h3>Construction & Field Experience</h3>
+          <p class="project-meta">Technical Reports · Site Documentation</p>
+          <p>
+            Construction-related experience supported by practical communication,
+            reporting, and technical problem-solving.
+          </p>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">Project image coming soon</div>
+        <div class="project-content">
+          <h3>Design Visualisation</h3>
+          <p class="project-meta">SketchUp · Adobe Suite</p>
+          <p>
+            Visual material used to communicate concepts, spatial organisation,
+            and technical design intent.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Software & skills</h2>
+
+    <div class="skills">
+      <span class="skill">AutoCAD</span>
+      <span class="skill">Revit</span>
+      <span class="skill">Vectorworks</span>
+      <span class="skill">SketchUp</span>
+      <span class="skill">BIM</span>
+      <span class="skill">Technical Drawings</span>
+      <span class="skill">Construction Documentation</span>
+      <span class="skill">Adobe Suite</span>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Let’s work together.</h2>
+    <p>
+      Available for junior architectural technologist, CAD designer,
+      BIM modeller, and technical documentation opportunities.
+    </p>
+    <a class="button" href="mailto:your-email@example.com">Email me</a>
+  </section>
+
+  <footer>
+    © 2026 Olivier Fiset-Dubois
+  </footer>
+</body>
+</html>
