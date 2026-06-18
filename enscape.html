@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -17,6 +18,10 @@
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -101,7 +106,7 @@
     }
 
     .intro {
-      max-width: 750px;
+      max-width: 760px;
       margin: 24px 0 0;
       color: var(--muted);
       font-size: 19px;
@@ -252,6 +257,7 @@
       }
     }
   </style>
+
 </head>
 
 <body>
@@ -259,184 +265,213 @@
   <nav>
     <a class="brand" href="index.html">OFD PORTFOLIO</a>
 
-    <div class="nav-links">
-      <a href="autocad.html">AutoCAD</a>
-      <a href="revit.html">Revit / BIM</a>
-      <a class="active" href="enscape.html">Enscape</a>
-      <a href="excel.html">Excel</a>
-    </div>
+```
+<div class="nav-links">
+  <a href="autocad.html">AutoCAD</a>
+  <a href="revit.html">Revit / BIM</a>
+  <a class="active" href="enscape.html">Enscape</a>
+  <a href="excel.html">Excel</a>
+</div>
+```
+
   </nav>
 
   <header>
     <p class="eyebrow">Software Portfolio</p>
 
-    <div class="software-title">
-      <img src="images/Enscape/Enscape-icon.png" alt="Enscape icon">
-      <h1>Enscape</h1>
-    </div>
+```
+<div class="software-title">
+  <img src="images/Enscape/Enscape-icon.png" alt="Enscape icon">
+  <h1>Enscape</h1>
+</div>
 
-    <p class="intro">
-      Architectural visualisation work including exterior renders, interior
-      views, materials, lighting, atmosphere, and visual communication of
-      architectural design intent.
-    </p>
+<p class="intro">
+  Architectural visualisation work including exterior renders, interior
+  views, material presentation, lighting, atmosphere, and visual
+  communication of architectural design intent.
+</p>
+```
+
   </header>
 
   <main>
     <div class="section-heading">
       <h2>Selected visualisations</h2>
 
-      <p>
-        Click any render to open the full-size image and view the visual
-        composition in more detail.
-      </p>
+```
+  <p>
+    Click any image to open the full-size render and view the visual
+    composition in more detail.
+  </p>
+</div>
+
+<section class="gallery">
+
+  <article class="project-card">
+    <a class="project-image" href="images/Enscape/Green-Tree-ext.jpg" target="_blank" rel="noopener">
+      <img src="images/Enscape/Green-Tree-ext.jpg" alt="Green Tree exterior render">
+    </a>
+
+    <div class="project-info">
+      <h3>Green Tree — Exterior</h3>
+      <p>Exterior visualisation communicating building form, site presence, and material atmosphere.</p>
+
+      <div class="tags">
+        <span class="tag">Exterior Render</span>
+        <span class="tag">Enscape</span>
+      </div>
     </div>
+  </article>
 
-    <section class="gallery">
+  <article class="project-card">
+    <a class="project-image" href="images/Enscape/Rendus-ext-Ergo%20H%C3%BCtte.png" target="_blank" rel="noopener">
+      <img src="images/Enscape/Rendus-ext-Ergo%20H%C3%BCtte.png" alt="Ergo Hütte exterior render">
+    </a>
 
-      <article class="project-card">
-        <a class="project-image" href="images/Enscape/Green-Tree-ext.jpg" target="_blank" rel="noopener">
-          <img src="images/Enscape/Green-Tree-ext.jpg" alt="Green Tree exterior render">
-        </a>
-        <div class="project-info">
-          <h3>Green Tree — Exterior</h3>
-          <p>Exterior visualisation communicating building form, site presence, and material atmosphere.</p>
-          <div class="tags">
-            <span class="tag">Exterior Render</span>
-            <span class="tag">Enscape</span>
-          </div>
-        </div>
-      </article>
+    <div class="project-info">
+      <h3>Ergo Hütte — Exterior</h3>
+      <p>Exterior render focused on natural materials, architectural form, and outdoor spatial experience.</p>
 
-      <article class="project-card">
-        <a class="project-image" href="images/Enscape/Rendus-ext-Ergo Hütte.png" target="_blank" rel="noopener">
-          <img src="images/Enscape/Rendus-ext-Ergo Hütte.png" alt="Ergo Hütte exterior render">
-        </a>
-        <div class="project-info">
-          <h3>Ergo Hütte — Exterior</h3>
-          <p>Exterior render focused on architecture, natural materials, and outdoor spatial experience.</p>
-          <div class="tags">
-            <span class="tag">Residential Design</span>
-            <span class="tag">Exterior Render</span>
-          </div>
-        </div>
-      </article>
+      <div class="tags">
+        <span class="tag">Residential Design</span>
+        <span class="tag">Exterior Render</span>
+      </div>
+    </div>
+  </article>
 
-      <article class="project-card">
-        <a class="project-image" href="images/Enscape/Rendus-int-Ergo Hütte.png" target="_blank" rel="noopener">
-          <img src="images/Enscape/Rendus-int-Ergo Hütte.png" alt="Ergo Hütte interior render">
-        </a>
-        <div class="project-info">
-          <h3>Ergo Hütte — Interior</h3>
-          <p>Interior visualisation showing spatial atmosphere, material choices, and an open living environment.</p>
-          <div class="tags">
-            <span class="tag">Interior Render</span>
-            <span class="tag">Material Study</span>
-          </div>
-        </div>
-      </article>
+  <article class="project-card">
+    <a class="project-image" href="images/Enscape/Rendus-int-Ergo%20H%C3%BCtte.png" target="_blank" rel="noopener">
+      <img src="images/Enscape/Rendus-int-Ergo%20H%C3%BCtte.png" alt="Ergo Hütte interior render">
+    </a>
 
-      <article class="project-card">
-        <a class="project-image" href="images/Enscape/VYC01.png" target="_blank" rel="noopener">
-          <img src="images/Enscape/VYC01.png" alt="Enscape visualisation study 01">
-        </a>
-        <div class="project-info">
-          <h3>Visualisation Study 01</h3>
-          <p>Architectural image exploring composition, lighting, and spatial presentation.</p>
-          <div class="tags">
-            <span class="tag">Enscape</span>
-            <span class="tag">Visualisation</span>
-          </div>
-        </div>
-      </article>
+    <div class="project-info">
+      <h3>Ergo Hütte — Interior</h3>
+      <p>Interior visualisation showing an open living environment, material choices, and spatial atmosphere.</p>
 
-      <article class="project-card">
-        <a class="project-image" href="images/Enscape/VYC02.png" target="_blank" rel="noopener">
-          <img src="images/Enscape/VYC02.png" alt="Enscape visualisation study 02">
-        </a>
-        <div class="project-info">
-          <h3>Visualisation Study 02</h3>
-          <p>Rendered project view prepared to communicate architectural intent and atmosphere.</p>
-          <div class="tags">
-            <span class="tag">Rendering</span>
-            <span class="tag">Architecture</span>
-          </div>
-        </div>
-      </article>
+      <div class="tags">
+        <span class="tag">Interior Render</span>
+        <span class="tag">Material Study</span>
+      </div>
+    </div>
+  </article>
 
-      <article class="project-card">
-        <a class="project-image" href="images/Enscape/VYC03.png" target="_blank" rel="noopener">
-          <img src="images/Enscape/VYC03.png" alt="Enscape visualisation study 03">
-        </a>
-        <div class="project-info">
-          <h3>Visualisation Study 03</h3>
-          <p>Perspective render showing spatial depth, materials, and design communication.</p>
-          <div class="tags">
-            <span class="tag">Perspective</span>
-            <span class="tag">Enscape</span>
-          </div>
-        </div>
-      </article>
+  <article class="project-card">
+    <a class="project-image" href="images/Enscape/VYCO1.png" target="_blank" rel="noopener">
+      <img src="images/Enscape/VYCO1.png" alt="Enscape visualisation study 01">
+    </a>
 
-      <article class="project-card">
-        <a class="project-image" href="images/Enscape/VYC05.png" target="_blank" rel="noopener">
-          <img src="images/Enscape/VYC05.png" alt="Enscape visualisation study 05">
-        </a>
-        <div class="project-info">
-          <h3>Visualisation Study 05</h3>
-          <p>Architectural render focused on form, context, and visual storytelling.</p>
-          <div class="tags">
-            <span class="tag">Rendering</span>
-            <span class="tag">Design Communication</span>
-          </div>
-        </div>
-      </article>
+    <div class="project-info">
+      <h3>Visualisation Study 01</h3>
+      <p>Architectural image exploring composition, lighting, and spatial presentation.</p>
 
-      <article class="project-card">
-        <a class="project-image" href="images/Enscape/VYC06.png" target="_blank" rel="noopener">
-          <img src="images/Enscape/VYC06.png" alt="Enscape visualisation study 06">
-        </a>
-        <div class="project-info">
-          <h3>Visualisation Study 06</h3>
-          <p>Rendered architectural view demonstrating lighting, materials, and environmental atmosphere.</p>
-          <div class="tags">
-            <span class="tag">Lighting</span>
-            <span class="tag">Material Study</span>
-          </div>
-        </div>
-      </article>
+      <div class="tags">
+        <span class="tag">Enscape</span>
+        <span class="tag">Visualisation</span>
+      </div>
+    </div>
+  </article>
 
-      <article class="project-card">
-        <a class="project-image" href="images/Enscape/VYC07.png" target="_blank" rel="noopener">
-          <img src="images/Enscape/VYC07.png" alt="Enscape visualisation study 07">
-        </a>
-        <div class="project-info">
-          <h3>Visualisation Study 07</h3>
-          <p>Architectural visual prepared for presentation of scale, space, and design character.</p>
-          <div class="tags">
-            <span class="tag">Architecture</span>
-            <span class="tag">Enscape</span>
-          </div>
-        </div>
-      </article>
+  <article class="project-card">
+    <a class="project-image" href="images/Enscape/VYCO2.png" target="_blank" rel="noopener">
+      <img src="images/Enscape/VYCO2.png" alt="Enscape visualisation study 02">
+    </a>
 
-      <article class="project-card">
-        <a class="project-image" href="images/Enscape/VYC08.png" target="_blank" rel="noopener">
-          <img src="images/Enscape/VYC08.png" alt="Enscape visualisation study 08">
-        </a>
-        <div class="project-info">
-          <h3>Visualisation Study 08</h3>
-          <p>Final project visualisation showing design mood, composition, and architectural intent.</p>
-          <div class="tags">
-            <span class="tag">Visualisation</span>
-            <span class="tag">Presentation</span>
-          </div>
-        </div>
-      </article>
+    <div class="project-info">
+      <h3>Visualisation Study 02</h3>
+      <p>Rendered project view prepared to communicate architectural intent and atmosphere.</p>
 
-    </section>
+      <div class="tags">
+        <span class="tag">Rendering</span>
+        <span class="tag">Architecture</span>
+      </div>
+    </div>
+  </article>
 
-    <a class="back-button" href="index.html">← Back to homepage</a>
+  <article class="project-card">
+    <a class="project-image" href="images/Enscape/VYCO3.png" target="_blank" rel="noopener">
+      <img src="images/Enscape/VYCO3.png" alt="Enscape visualisation study 03">
+    </a>
+
+    <div class="project-info">
+      <h3>Visualisation Study 03</h3>
+      <p>Perspective render showing spatial depth, material expression, and design communication.</p>
+
+      <div class="tags">
+        <span class="tag">Perspective</span>
+        <span class="tag">Enscape</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="project-card">
+    <a class="project-image" href="images/Enscape/VYCO5.png" target="_blank" rel="noopener">
+      <img src="images/Enscape/VYCO5.png" alt="Enscape visualisation study 05">
+    </a>
+
+    <div class="project-info">
+      <h3>Visualisation Study 05</h3>
+      <p>Architectural render focused on form, context, and visual storytelling.</p>
+
+      <div class="tags">
+        <span class="tag">Rendering</span>
+        <span class="tag">Design Communication</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="project-card">
+    <a class="project-image" href="images/Enscape/VYCO6.png" target="_blank" rel="noopener">
+      <img src="images/Enscape/VYCO6.png" alt="Enscape visualisation study 06">
+    </a>
+
+    <div class="project-info">
+      <h3>Visualisation Study 06</h3>
+      <p>Rendered architectural view demonstrating lighting, materials, and environmental atmosphere.</p>
+
+      <div class="tags">
+        <span class="tag">Lighting</span>
+        <span class="tag">Material Study</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="project-card">
+    <a class="project-image" href="images/Enscape/VYCO7.png" target="_blank" rel="noopener">
+      <img src="images/Enscape/VYCO7.png" alt="Enscape visualisation study 07">
+    </a>
+
+    <div class="project-info">
+      <h3>Visualisation Study 07</h3>
+      <p>Architectural visual prepared for presentation of scale, space, and design character.</p>
+
+      <div class="tags">
+        <span class="tag">Architecture</span>
+        <span class="tag">Enscape</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="project-card">
+    <a class="project-image" href="images/Enscape/VYCO8.png" target="_blank" rel="noopener">
+      <img src="images/Enscape/VYCO8.png" alt="Enscape visualisation study 08">
+    </a>
+
+    <div class="project-info">
+      <h3>Visualisation Study 08</h3>
+      <p>Final project visualisation showing design mood, composition, and architectural intent.</p>
+
+      <div class="tags">
+        <span class="tag">Visualisation</span>
+        <span class="tag">Presentation</span>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<a class="back-button" href="index.html">← Back to homepage</a>
+```
+
   </main>
 
   <footer>
