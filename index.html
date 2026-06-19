@@ -55,6 +55,67 @@
       .section-heading { align-items:flex-start; flex-direction:column; }
       .software-card { min-height:285px; }
     }
+  
+
+    /* Grand format : texte et icônes agrandis à environ 150 %. */
+    body { line-height: 1.6; }
+    nav { padding: 26px 8%; }
+    .brand { font-size: 24px; }
+    .nav-links { gap: 27px; }
+    .nav-links a { font-size: 21px; }
+    header { padding: 145px 10% 122px; }
+    .eyebrow { margin-bottom: 22px; font-size: 19.5px; letter-spacing: 1.8px; }
+    h1 { font-size: clamp(69px, 9vw, 126px); }
+    .intro { max-width: 980px; margin-top: 42px; font-size: 30px; }
+    .hero-links { gap: 18px; margin-top: 48px; }
+    .button { padding: 20px 29px; font-size: 21px; }
+    section { padding: 126px 10%; }
+    .section-heading { gap: 45px; margin-bottom: 54px; }
+    .section-heading h2 { font-size: clamp(48px, 6vw, 72px); }
+    .section-heading p { max-width: 760px; font-size: 24px; }
+    .software-grid { gap: 36px; }
+    .software-card { min-height: 480px; padding: 45px; }
+    .software-icon { width: 96px; height: 96px; margin-bottom: 51px; border-radius: 18px; }
+    .software-icon img { width: 66px; height: 66px; }
+    .software-card h3 { margin-bottom: 18px; font-size: 45px; }
+    .software-card p { font-size: 24px; }
+    .card-footer { padding-top: 42px; font-size: 21px; }
+    .about-grid { gap: 36px; }
+    .about-card { padding: 45px; }
+    .about-card h3 { margin-bottom: 21px; font-size: 33px; }
+    .about-card p { font-size: 24px; }
+    .skills { gap: 13px; margin-top: 27px; }
+    .skill { padding: 10px 16px; font-size: 18px; }
+    .contact-email { padding: 20px 29px; font-size: 21px; }
+    footer { padding: 38px 10%; font-size: 19.5px; }
+
+    @media (max-width: 850px) {
+      .software-grid, .about-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 650px) {
+      nav { padding: 20px 7%; }
+      .brand { font-size: 21px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 17px; }
+      header, section { padding-left: 7%; padding-right: 7%; }
+      header { padding-top: 78px; padding-bottom: 72px; }
+      .eyebrow { font-size: 15px; }
+      h1 { font-size: clamp(44px, 13vw, 70px); }
+      .intro { font-size: 21px; }
+      .section-heading h2 { font-size: 39px; }
+      .section-heading p { font-size: 19px; }
+      .software-card { min-height: 360px; padding: 32px; }
+      .software-icon { width: 76px; height: 76px; margin-bottom: 34px; }
+      .software-icon img { width: 52px; height: 52px; }
+      .software-card h3 { font-size: 35px; }
+      .software-card p { font-size: 20px; }
+      .card-footer { font-size: 18px; }
+      .about-card { padding: 32px; }
+      .about-card h3 { font-size: 28px; }
+      .about-card p { font-size: 20px; }
+    }
+
   </style>
 </head>
 <body>
@@ -101,64 +162,4 @@
       <a class="software-card" href="enscape.html">
         <div class="software-icon"><img src="images/Enscape/Enscape-icon.png" alt="Icône Enscape"></div>
         <h3>Enscape</h3>
-        <p>Rendus architecturaux extérieurs et intérieurs, études de matériaux, atmosphère, éclairage, narration visuelle et présentation de projets.</p>
-        <div class="card-footer"><span>Voir les travaux Enscape</span><span>→</span></div>
-      </a>
-
-      <a class="software-card" href="excel.html">
-        <div class="software-icon"><img src="images/Excel/Excel-icon.png" alt="Icône Excel"></div>
-        <h3>Excel</h3>
-        <p>Calculs de l’enveloppe du bâtiment, organisation des données, graphiques de gradient thermique, analyse de performance et communication visuelle.</p>
-        <div class="card-footer"><span>Voir les travaux Excel</span><span>→</span></div>
-      </a>
-    </div>
-  </section>
-
-  <section id="profil">
-    <div class="section-heading">
-      <h2>Profil</h2>
-      <p>Un portfolio pratique axé sur une communication technique claire et le développement de projets architecturaux.</p>
-    </div>
-
-    <div class="about-grid">
-      <article class="about-card">
-        <h3>Ce que je fais</h3>
-        <p>Je réalise des dessins architecturaux, de la documentation BIM, des détails de construction, des présentations visuelles et des analyses techniques qui appuient la conception, la coordination et la communication des projets.</p>
-        <div class="skills">
-          <span class="skill">Dessins techniques</span>
-          <span class="skill">Coordination BIM</span>
-          <span class="skill">Documentation de construction</span>
-          <span class="skill">Planification de site</span>
-          <span class="skill">Visualisation</span>
-          <span class="skill">Enveloppe du bâtiment</span>
-        </div>
-      </article>
-
-      <article class="about-card">
-        <h3>Logiciels</h3>
-        <p>AutoCAD, Revit, Enscape et Excel sont utilisés dans ce portfolio pour développer, documenter, analyser et présenter des projets architecturaux.</p>
-        <div class="skills">
-          <span class="skill">AutoCAD</span>
-          <span class="skill">Revit</span>
-          <span class="skill">BIM</span>
-          <span class="skill">Enscape</span>
-          <span class="skill">Excel</span>
-          <span class="skill">Adobe Suite</span>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section id="contact" class="contact-section">
-    <div class="section-heading">
-      <div>
-        <h2>Travaillons ensemble.</h2>
-        <p>Disponible pour des postes de technologue junior en architecture, technicien DAO, modeleur BIM et documentation technique.</p>
-      </div>
-      <a class="contact-email" href="mailto:olifiso@gmail.com">olifiso@gmail.com</a>
-    </div>
-  </section>
-
-  <footer>© 2026 Olivier Fiset-Dubois — Portfolio d’architecture</footer>
-</body>
-</html>
+        <p>Rendus architecturaux extérieurs et intérieurs, études de matériaux, atmosphère, éclairage, narration visuelle et présentation 
