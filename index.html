@@ -13,11 +13,10 @@
       --paper: #f5f5f3;
       --white: #ffffff;
       --accent: #2f5e78;
-      --soft-blue: #edf4f7;
+      --soft: #edf4f7;
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -36,14 +35,14 @@
       justify-content: space-between;
       align-items: center;
       gap: 24px;
-      padding: 26px 8%;
+      padding: 22px 8%;
       background: rgba(255, 255, 255, 0.97);
       border-bottom: 1px solid var(--line);
     }
 
     .brand {
       color: var(--ink);
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
       letter-spacing: 0.5px;
       text-decoration: none;
@@ -52,12 +51,12 @@
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 27px;
+      gap: 24px;
     }
 
     .nav-links a {
       color: var(--muted);
-      font-size: 21px;
+      font-size: 18px;
       font-weight: 700;
       text-decoration: none;
     }
@@ -65,55 +64,62 @@
     .nav-links a:hover { color: var(--accent); }
 
     header {
-      padding: 135px 10% 112px;
+      padding: 112px 10% 94px;
       background: var(--white);
       border-bottom: 1px solid var(--line);
     }
 
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(330px, 0.55fr);
+      gap: 54px;
+      align-items: end;
+    }
+
     .eyebrow {
-      margin: 0 0 22px;
+      margin: 0 0 18px;
       color: var(--accent);
-      font-size: 19.5px;
+      font-size: 17px;
       font-weight: 800;
-      letter-spacing: 1.8px;
+      letter-spacing: 1.6px;
       text-transform: uppercase;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(58px, 6.2vw, 104px);
-      line-height: 1.03;
+      font-size: clamp(58px, 6vw, 96px);
+      line-height: 1.02;
       letter-spacing: -2.5px;
       white-space: nowrap;
     }
 
     .intro {
-      max-width: 980px;
-      margin: 42px 0 0;
+      max-width: 900px;
+      margin: 34px 0 0;
       color: var(--muted);
-      font-size: 30px;
+      font-size: 27px;
     }
 
     /* Contour noir de 1 px pour les textes gris. */
-    .outlined-grey {
-      -webkit-text-stroke: 1px #000000;
+    .texte-gris {
+      -webkit-text-stroke: 1px #000;
       paint-order: stroke fill;
     }
 
     .hero-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
-      margin-top: 48px;
+      gap: 16px;
+      margin-top: 42px;
     }
 
     .button {
       display: inline-block;
-      padding: 20px 29px;
+      padding: 17px 24px;
       color: var(--white);
       background: var(--ink);
       border-radius: 4px;
-      font-size: 21px;
+      font-size: 19px;
       font-weight: 800;
       text-decoration: none;
     }
@@ -131,81 +137,141 @@
       background: var(--ink);
     }
 
-    section { padding: 126px 10%; }
+    .contact-card {
+      padding: 31px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .contact-card h2 {
+      margin: 0 0 23px;
+      font-size: 28px;
+    }
+
+    .contact-label {
+      margin: 18px 0 4px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      display: inline-block;
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .contact-value:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .download-links {
+      display: grid;
+      gap: 11px;
+      margin-top: 28px;
+    }
+
+    .download-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .download-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    section { padding: 106px 10%; }
 
     .section-heading {
       display: flex;
       justify-content: space-between;
       align-items: end;
-      gap: 45px;
-      margin-bottom: 54px;
+      gap: 42px;
+      margin-bottom: 48px;
     }
 
     .section-heading h2 {
       margin: 0;
-      font-size: clamp(48px, 6vw, 72px);
-      letter-spacing: -1.4px;
+      font-size: clamp(44px, 5vw, 66px);
+      letter-spacing: -1.3px;
     }
 
     .section-heading p {
-      max-width: 760px;
+      max-width: 670px;
       margin: 0;
       color: var(--muted);
-      font-size: 24px;
+      font-size: 22px;
     }
 
     .software-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 36px;
+      gap: 30px;
     }
 
     .software-card {
       display: flex;
       flex-direction: column;
-      min-height: 515px;
-      padding: 45px;
+      min-height: 430px;
+      padding: 38px;
       color: var(--ink);
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: 12px;
       text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
 
     .software-card:hover {
       transform: translateY(-4px);
       border-color: #c3cbd1;
-      box-shadow: 0 14px 30px rgba(29, 37, 44, 0.10);
+      box-shadow: 0 14px 30px rgba(29, 37, 44, .10);
     }
 
     .software-icon {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 96px;
-      height: 96px;
-      margin-bottom: 51px;
-      background: var(--soft-blue);
-      border-radius: 18px;
+      width: 84px;
+      height: 84px;
+      margin-bottom: 40px;
+      background: var(--soft);
+      border-radius: 16px;
     }
 
     .software-icon img {
-      width: 66px;
-      height: 66px;
+      width: 58px;
+      height: 58px;
       object-fit: contain;
     }
 
     .software-card h3 {
-      margin: 0 0 18px;
-      font-size: 45px;
+      margin: 0 0 15px;
+      font-size: 38px;
       letter-spacing: -0.7px;
     }
 
     .software-card p {
       margin: 0;
       color: var(--muted);
-      font-size: 24px;
+      font-size: 21px;
     }
 
     .card-footer {
@@ -213,49 +279,49 @@
       justify-content: space-between;
       align-items: center;
       margin-top: auto;
-      padding-top: 42px;
+      padding-top: 32px;
       color: var(--accent);
-      font-size: 21px;
+      font-size: 19px;
       font-weight: 800;
     }
 
     .about-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-      gap: 36px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px;
     }
 
     .about-card {
-      padding: 45px;
+      padding: 38px;
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: 12px;
     }
 
     .about-card h3 {
-      margin: 0 0 21px;
-      font-size: 33px;
+      margin: 0 0 17px;
+      font-size: 30px;
     }
 
     .about-card p {
       margin: 0;
       color: var(--muted);
-      font-size: 24px;
+      font-size: 21px;
     }
 
     .skills {
       display: flex;
       flex-wrap: wrap;
-      gap: 13px;
-      margin-top: 27px;
+      gap: 10px;
+      margin-top: 24px;
     }
 
     .skill {
-      padding: 10px 16px;
+      padding: 8px 13px;
       color: #4d5962;
       background: #edf0f1;
       border-radius: 999px;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
     }
 
@@ -270,37 +336,88 @@
       -webkit-text-stroke: 0;
     }
 
-    .contact-section .section-heading p { opacity: 0.85; }
+    .contact-section .section-heading p { opacity: .84; }
 
-    .contact-email {
-      display: inline-block;
-      padding: 20px 29px;
-      color: var(--ink);
-      background: var(--white);
-      border-radius: 4px;
-      font-size: 21px;
+    .bottom-contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.75fr);
+      gap: 30px;
+      margin-top: 38px;
+    }
+
+    .bottom-contact-card,
+    .bottom-download-card {
+      padding: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 12px;
+    }
+
+    .bottom-contact-card h3,
+    .bottom-download-card h3 {
+      margin: 0 0 18px;
+      font-size: 28px;
+    }
+
+    .bottom-contact-card p {
+      margin: 10px 0;
+      font-size: 20px;
+    }
+
+    .bottom-contact-card a {
+      color: var(--white);
       font-weight: 800;
       text-decoration: none;
     }
 
-    .contact-email:hover { background: #edf0f1; }
+    .bottom-contact-card a:hover { text-decoration: underline; }
+
+    .bottom-download-card {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .bottom-download-card .download-link {
+      color: var(--white);
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.45);
+    }
+
+    .bottom-download-card .download-link:hover {
+      color: var(--white);
+      border-color: var(--white);
+    }
 
     footer {
-      padding: 38px 10%;
+      padding: 32px 10%;
       color: var(--muted);
       background: var(--white);
-      font-size: 19.5px;
+      font-size: 17px;
       text-align: center;
     }
 
     @media (max-width: 1050px) {
-      h1 { font-size: clamp(54px, 6vw, 85px); }
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        max-width: 580px;
+      }
+
+      h1 {
+        white-space: normal;
+      }
     }
 
     @media (max-width: 850px) {
       .software-grid,
-      .about-grid {
+      .about-grid,
+      .bottom-contact-grid {
         grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
       }
     }
 
@@ -308,73 +425,77 @@
       nav {
         align-items: flex-start;
         flex-direction: column;
-        padding: 20px 7%;
+        padding: 18px 7%;
       }
 
-      .brand { font-size: 21px; }
+      .brand { font-size: 20px; }
       .nav-links { gap: 14px; }
-      .nav-links a { font-size: 17px; }
+      .nav-links a { font-size: 16px; }
 
-      header,
-      section {
+      header, section {
         padding-left: 7%;
         padding-right: 7%;
       }
 
       header {
-        padding-top: 78px;
-        padding-bottom: 72px;
+        padding-top: 72px;
+        padding-bottom: 66px;
       }
 
-      .eyebrow { font-size: 15px; }
-
+      .eyebrow { font-size: 14px; }
       h1 {
-        font-size: clamp(44px, 13vw, 70px);
+        font-size: clamp(46px, 13vw, 72px);
         white-space: normal;
       }
 
-      .intro { font-size: 21px; }
-
-      .section-heading {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .section-heading h2 { font-size: 39px; }
-      .section-heading p { font-size: 19px; }
+      .intro { font-size: 20px; }
+      .section-heading h2 { font-size: 38px; }
+      .section-heading p { font-size: 18px; }
 
       .software-card {
-        min-height: 360px;
-        padding: 32px;
+        min-height: 340px;
+        padding: 30px;
       }
 
       .software-icon {
-        width: 76px;
-        height: 76px;
-        margin-bottom: 34px;
+        width: 72px;
+        height: 72px;
+        margin-bottom: 32px;
       }
 
       .software-icon img {
-        width: 52px;
-        height: 52px;
+        width: 49px;
+        height: 49px;
       }
 
-      .software-card h3 { font-size: 35px; }
-      .software-card p { font-size: 20px; }
-      .card-footer { font-size: 18px; }
+      .software-card h3 { font-size: 33px; }
+      .software-card p { font-size: 19px; }
+      .card-footer { font-size: 17px; }
 
-      .about-card { padding: 32px; }
-      .about-card h3 { font-size: 28px; }
-      .about-card p { font-size: 20px; }
+      .about-card,
+      .bottom-contact-card,
+      .bottom-download-card,
+      .contact-card {
+        padding: 27px;
+      }
+
+      .about-card h3,
+      .bottom-contact-card h3,
+      .bottom-download-card h3 {
+        font-size: 26px;
+      }
+
+      .about-card p,
+      .bottom-contact-card p {
+        font-size: 19px;
+      }
     }
   </style>
 </head>
 
 <body>
-
   <nav>
     <a class="brand" href="index.html">OFD PORTFOLIO</a>
-
     <div class="nav-links">
       <a href="#logiciels">Logiciels</a>
       <a href="#profil">Profil</a>
@@ -383,26 +504,47 @@
   </nav>
 
   <header>
-    <p class="eyebrow">Technologue en architecture · Technicien DAO</p>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Technologue en architecture · Technicien DAO</p>
+        <h1>Olivier Fiset-Dubois</h1>
 
-    <h1>Olivier Fiset-Dubois</h1>
+        <p class="intro texte-gris">
+          Plans architecturaux, modèles BIM, détails de construction, analyses de
+          l’enveloppe du bâtiment et communication visuelle pour l’environnement bâti.
+        </p>
 
-    <p class="intro outlined-grey">
-      Plans architecturaux, modèles BIM, détails de construction, analyses de
-      l’enveloppe du bâtiment et communication visuelle pour l’environnement bâti.
-    </p>
+        <div class="hero-links">
+          <a class="button" href="#logiciels">Voir le portfolio par logiciel</a>
+          <a class="button button-outline" href="#contact">Contacter Olivier</a>
+        </div>
+      </div>
 
-    <div class="hero-links">
-      <a class="button" href="#logiciels">Voir le portfolio par logiciel</a>
-      <a class="button button-outline" href="#contact">Contacter Olivier</a>
+      <aside class="contact-card">
+        <h2>Coordonnées</h2>
+
+        <p class="contact-label">Téléphone</p>
+        <a class="contact-value" href="tel:+32494348508">+32 494 34 85 08</a>
+
+        <p class="contact-label">Courriel</p>
+        <a class="contact-value" href="mailto:olifiso@gmail.com">olifiso@gmail.com</a>
+
+        <div class="download-links">
+          <a class="download-link" href="documents/CV_Olivier_Fiset-Dubois.pdf" target="_blank" rel="noopener">
+            <span>Télécharger le CV</span><span>↓</span>
+          </a>
+          <a class="download-link" href="documents/Portfolio_Olivier_Fiset-Dubois.pdf" target="_blank" rel="noopener">
+            <span>Télécharger le portfolio PDF</span><span>↓</span>
+          </a>
+        </div>
+      </aside>
     </div>
   </header>
 
   <section id="logiciels">
     <div class="section-heading">
       <h2>Portfolio par logiciel</h2>
-
-      <p class="outlined-grey">
+      <p class="texte-gris">
         Explorez des travaux sélectionnés, organisés par logiciel : dessin
         technique, documentation BIM, visualisation architecturale et analyse
         de performance du bâtiment.
@@ -410,87 +552,60 @@
     </div>
 
     <div class="software-grid">
-
       <a class="software-card" href="autocad.html">
         <div class="software-icon">
           <img src="images/AutoCAD/AutoCAD-icon.png" alt="Icône AutoCAD">
         </div>
-
         <h3>AutoCAD</h3>
-
-        <p class="outlined-grey">
+        <p class="texte-gris">
           Détails de construction, plans électriques, assemblages de murs,
           documentation technique, élévations intérieures et jeux de plans cotés.
         </p>
-
-        <div class="card-footer">
-          <span>Voir les travaux AutoCAD</span>
-          <span>→</span>
-        </div>
+        <div class="card-footer"><span>Voir les travaux AutoCAD</span><span>→</span></div>
       </a>
 
       <a class="software-card" href="revit.html">
         <div class="software-icon">
           <img src="images/Revit/Revit-icon.png" alt="Icône Revit">
         </div>
-
         <h3>Revit / BIM</h3>
-
-        <p class="outlined-grey">
+        <p class="texte-gris">
           Modélisation BIM, plans d’étage, élévations, implantation,
           documentation coordonnée, vues structurelles et communication de conception.
         </p>
-
-        <div class="card-footer">
-          <span>Voir les travaux Revit / BIM</span>
-          <span>→</span>
-        </div>
+        <div class="card-footer"><span>Voir les travaux Revit / BIM</span><span>→</span></div>
       </a>
 
       <a class="software-card" href="enscape.html">
         <div class="software-icon">
           <img src="images/Enscape/Enscape-icon.png" alt="Icône Enscape">
         </div>
-
         <h3>Enscape</h3>
-
-        <p class="outlined-grey">
+        <p class="texte-gris">
           Rendus architecturaux extérieurs et intérieurs, études de matériaux,
           atmosphère, éclairage, narration visuelle et présentation de projet.
         </p>
-
-        <div class="card-footer">
-          <span>Voir les travaux Enscape</span>
-          <span>→</span>
-        </div>
+        <div class="card-footer"><span>Voir les travaux Enscape</span><span>→</span></div>
       </a>
 
       <a class="software-card" href="excel.html">
         <div class="software-icon">
           <img src="images/Excel/Excel-icon.png" alt="Icône Excel">
         </div>
-
         <h3>Excel</h3>
-
-        <p class="outlined-grey">
+        <p class="texte-gris">
           Calculs de l’enveloppe thermique, organisation des données,
           graphiques de gradients de température et analyse de performance du bâtiment.
         </p>
-
-        <div class="card-footer">
-          <span>Voir les travaux Excel</span>
-          <span>→</span>
-        </div>
+        <div class="card-footer"><span>Voir les travaux Excel</span><span>→</span></div>
       </a>
-
     </div>
   </section>
 
   <section id="profil">
     <div class="section-heading">
       <h2>Profil</h2>
-
-      <p class="outlined-grey">
+      <p class="texte-gris">
         Un portfolio pratique centré sur la communication technique claire
         et le développement de projets architecturaux.
       </p>
@@ -499,13 +614,11 @@
     <div class="about-grid">
       <article class="about-card">
         <h3>Ce que je fais</h3>
-
-        <p class="outlined-grey">
+        <p class="texte-gris">
           Je réalise des plans architecturaux, de la documentation BIM, des
           détails de construction, des présentations visuelles et des analyses
           techniques pour soutenir la conception, la coordination et la communication de projet.
         </p>
-
         <div class="skills">
           <span class="skill">Dessins techniques</span>
           <span class="skill">Coordination BIM</span>
@@ -518,12 +631,10 @@
 
       <article class="about-card">
         <h3>Logiciels</h3>
-
-        <p class="outlined-grey">
+        <p class="texte-gris">
           AutoCAD, Revit, Enscape et Excel sont utilisés dans ce portfolio
           pour développer, documenter, analyser et présenter des projets architecturaux.
         </p>
-
         <div class="skills">
           <span class="skill">AutoCAD</span>
           <span class="skill">Revit</span>
@@ -539,23 +650,37 @@
   <section id="contact" class="contact-section">
     <div class="section-heading">
       <div>
-        <h2>Travaillons ensemble.</h2>
-
+        <h2>Me contacter</h2>
         <p>
           Disponible pour des opportunités de technologue en architecture junior,
           technicien DAO, modeleur BIM et documentation technique.
         </p>
       </div>
+    </div>
 
-      <a class="contact-email" href="mailto:olifiso@gmail.com">
-        olifiso@gmail.com
-      </a>
+    <div class="bottom-contact-grid">
+      <article class="bottom-contact-card">
+        <h3>Coordonnées</h3>
+        <p>Téléphone : <a href="tel:+32494348508">+32 494 34 85 08</a></p>
+        <p>Courriel : <a href="mailto:olifiso@gmail.com">olifiso@gmail.com</a></p>
+      </article>
+
+      <article class="bottom-download-card">
+        <h3>Documents</h3>
+        <div class="download-links">
+          <a class="download-link" href="documents/CV_Olivier_Fiset-Dubois.pdf" target="_blank" rel="noopener">
+            <span>Télécharger le CV</span><span>↓</span>
+          </a>
+          <a class="download-link" href="documents/Portfolio_Olivier_Fiset-Dubois.pdf" target="_blank" rel="noopener">
+            <span>Télécharger le portfolio PDF</span><span>↓</span>
+          </a>
+        </div>
+      </article>
     </div>
   </section>
 
   <footer>
     © 2026 Olivier Fiset-Dubois — Portfolio d’architecture
   </footer>
-
 </body>
 </html>
